@@ -1,6 +1,6 @@
 ﻿namespace Hal_Sistemi
 {
-    partial class Form1
+    partial class Cari
     {
         /// <summary>
         /// Required designer variable.

@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace Hal_Sistemi
 {
-    public partial class Form1 : Form
+    public partial class Cari : Form
     {
-        public Form1()
+        public Cari()
         {
             InitializeComponent();
         }
