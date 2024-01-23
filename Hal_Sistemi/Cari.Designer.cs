@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Txtid = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.MskTelefon = new System.Windows.Forms.MaskedTextBox();
             this.TxtEposta = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -49,8 +51,6 @@
             this.BtnGüncelle = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Txtid = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -83,6 +83,25 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cari(Müşteri) Kısmı";
+            // 
+            // Txtid
+            // 
+            this.Txtid.Location = new System.Drawing.Point(240, 44);
+            this.Txtid.Margin = new System.Windows.Forms.Padding(4);
+            this.Txtid.Name = "Txtid";
+            this.Txtid.ReadOnly = true;
+            this.Txtid.Size = new System.Drawing.Size(221, 32);
+            this.Txtid.TabIndex = 1;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(196, 52);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(36, 24);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "İD:";
             // 
             // MskTelefon
             // 
@@ -216,7 +235,7 @@
             this.BtnSistemKaydet.Name = "BtnSistemKaydet";
             this.BtnSistemKaydet.Size = new System.Drawing.Size(221, 46);
             this.BtnSistemKaydet.TabIndex = 8;
-            this.BtnSistemKaydet.Text = "Sisteme Ekle";
+            this.BtnSistemKaydet.Text = "Kaydet";
             this.BtnSistemKaydet.UseVisualStyleBackColor = true;
             this.BtnSistemKaydet.Click += new System.EventHandler(this.BtnSistemKaydet_Click);
             // 
@@ -278,26 +297,7 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // Txtid
-            // 
-            this.Txtid.Location = new System.Drawing.Point(240, 44);
-            this.Txtid.Margin = new System.Windows.Forms.Padding(4);
-            this.Txtid.Name = "Txtid";
-            this.Txtid.ReadOnly = true;
-            this.Txtid.Size = new System.Drawing.Size(221, 32);
-            this.Txtid.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(196, 52);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(36, 24);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "İD:";
-            // 
-            // Form1
+            // Cari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -308,7 +308,7 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Form1";
+            this.Name = "Cari";
             this.Text = "Cari (Müşteri) Modülü";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
