@@ -106,14 +106,14 @@
             this.CmbBirim.Location = new System.Drawing.Point(147, 130);
             this.CmbBirim.Name = "CmbBirim";
             this.CmbBirim.Size = new System.Drawing.Size(290, 32);
-            this.CmbBirim.TabIndex = 12;
+            this.CmbBirim.TabIndex = 2;
             // 
             // TxtKDVOran
             // 
             this.TxtKDVOran.Location = new System.Drawing.Point(147, 350);
             this.TxtKDVOran.Name = "TxtKDVOran";
             this.TxtKDVOran.Size = new System.Drawing.Size(290, 32);
-            this.TxtKDVOran.TabIndex = 11;
+            this.TxtKDVOran.TabIndex = 6;
             // 
             // label6
             // 
@@ -129,7 +129,7 @@
             this.TxtBirimFiyat.Location = new System.Drawing.Point(147, 292);
             this.TxtBirimFiyat.Name = "TxtBirimFiyat";
             this.TxtBirimFiyat.Size = new System.Drawing.Size(290, 32);
-            this.TxtBirimFiyat.TabIndex = 9;
+            this.TxtBirimFiyat.TabIndex = 5;
             // 
             // label5
             // 
@@ -145,7 +145,7 @@
             this.TxtMensei.Location = new System.Drawing.Point(147, 237);
             this.TxtMensei.Name = "TxtMensei";
             this.TxtMensei.Size = new System.Drawing.Size(290, 32);
-            this.TxtMensei.TabIndex = 7;
+            this.TxtMensei.TabIndex = 4;
             // 
             // label4
             // 
@@ -214,7 +214,7 @@
             this.BtnSilme.Location = new System.Drawing.Point(93, 295);
             this.BtnSilme.Name = "BtnSilme";
             this.BtnSilme.Size = new System.Drawing.Size(255, 43);
-            this.BtnSilme.TabIndex = 2;
+            this.BtnSilme.TabIndex = 9;
             this.BtnSilme.Text = "Silme";
             this.BtnSilme.UseVisualStyleBackColor = true;
             this.BtnSilme.Click += new System.EventHandler(this.BtnSilme_Click);
@@ -224,7 +224,7 @@
             this.BtnGuncelle.Location = new System.Drawing.Point(93, 151);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(255, 43);
-            this.BtnGuncelle.TabIndex = 1;
+            this.BtnGuncelle.TabIndex = 8;
             this.BtnGuncelle.Text = "Güncelleme";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
@@ -234,7 +234,7 @@
             this.BtnEkle.Location = new System.Drawing.Point(93, 37);
             this.BtnEkle.Name = "BtnEkle";
             this.BtnEkle.Size = new System.Drawing.Size(255, 43);
-            this.BtnEkle.TabIndex = 0;
+            this.BtnEkle.TabIndex = 7;
             this.BtnEkle.Text = "Ekle";
             this.BtnEkle.UseVisualStyleBackColor = true;
             this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
@@ -262,7 +262,7 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // Urun
+            // FrmUrun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -273,7 +273,7 @@
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold);
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Urun";
+            this.Name = "FrmUrun";
             this.Text = "Ürünler";
             this.Load += new System.EventHandler(this.Urun_Load);
             this.groupBox1.ResumeLayout(false);

@@ -22,7 +22,9 @@ namespace Hal_Sistemi
 
         private void BtnGirisYap_Click(object sender, EventArgs e)
         {
-            SqlCommand login = new SqlCommand("Select HalNo,HalSifre From TBLHalGiris Where HalNo=@P1 and HalSifre=@P2");
+            // Giris Kısmı
+            baglanti.Open();
+            SqlCommand login = new SqlCommand("Select HalNo,HalSifre From TBLHalGiris Where HalNo=@P1 and HalSifre=@P2",baglanti);
             login.Parameters.AddWithValue("@P1", TxtHalNumarasi.Text);
             login.Parameters.AddWithValue("@P2", TxtHalSifre.Text);
             SqlDataReader dr = login.ExecuteReader();
@@ -34,8 +36,9 @@ namespace Hal_Sistemi
             }
             else
             {
-                MessageBox.Show("HalNO yada Şifre Yanlış","Başarısız Giriş",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("HalNumarası yada Şifre Yanlış", "Başarısız Giriş", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            baglanti.Close();
         }
     }
 }
