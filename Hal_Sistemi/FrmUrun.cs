@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace Hal_Sistemi
 {
-    public partial class Urun : Form
+    public partial class FrmUrun : Form
     {
-        public Urun()
+        public FrmUrun()
         {
             InitializeComponent();
         }

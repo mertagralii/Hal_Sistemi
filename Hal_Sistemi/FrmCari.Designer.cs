@@ -1,6 +1,6 @@
 ﻿namespace Hal_Sistemi
 {
-    partial class Cari
+    partial class FrmCari
     {
         /// <summary>
         /// Required designer variable.
@@ -301,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1100, 675);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

@@ -1,6 +1,6 @@
 ﻿namespace Hal_Sistemi
 {
-    partial class Satis
+    partial class FrmSatis
     {
         /// <summary>
         /// Required designer variable.

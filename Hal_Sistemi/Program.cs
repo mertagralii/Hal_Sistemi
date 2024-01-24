@@ -16,7 +16,7 @@ namespace Hal_Sistemi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Urun());
+            Application.Run(new FrmUrun());
         }
     }
 }

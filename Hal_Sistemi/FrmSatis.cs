@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Hal_Sistemi
 {
-    public partial class Login : Form
+    public partial class FrmSatis : Form
     {
-        public Login()
+        public FrmSatis()
         {
             InitializeComponent();
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Hal_Sistemi
 {
-    public partial class Satis : Form
+    public partial class FrmMenu : Form
     {
-        public Satis()
+        public FrmMenu()
         {
             InitializeComponent();
         }
