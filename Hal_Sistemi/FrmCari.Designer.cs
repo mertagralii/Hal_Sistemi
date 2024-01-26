@@ -232,7 +232,7 @@
             // 
             // BtnSistemKaydet
             // 
-            this.BtnSistemKaydet.Location = new System.Drawing.Point(149, 39);
+            this.BtnSistemKaydet.Location = new System.Drawing.Point(105, 41);
             this.BtnSistemKaydet.Name = "BtnSistemKaydet";
             this.BtnSistemKaydet.Size = new System.Drawing.Size(221, 46);
             this.BtnSistemKaydet.TabIndex = 8;
@@ -256,7 +256,7 @@
             // 
             // BtnSil
             // 
-            this.BtnSil.Location = new System.Drawing.Point(149, 277);
+            this.BtnSil.Location = new System.Drawing.Point(105, 284);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(221, 46);
             this.BtnSil.TabIndex = 10;
@@ -266,7 +266,7 @@
             // 
             // BtnGüncelle
             // 
-            this.BtnGüncelle.Location = new System.Drawing.Point(149, 150);
+            this.BtnGüncelle.Location = new System.Drawing.Point(105, 161);
             this.BtnGüncelle.Name = "BtnGüncelle";
             this.BtnGüncelle.Size = new System.Drawing.Size(221, 46);
             this.BtnGüncelle.TabIndex = 9;

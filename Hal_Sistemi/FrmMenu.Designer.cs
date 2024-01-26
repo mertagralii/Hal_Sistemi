@@ -36,7 +36,7 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -45,20 +45,20 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(25, 36);
+            this.groupBox1.Location = new System.Drawing.Point(12, 36);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(455, 341);
+            this.groupBox1.Size = new System.Drawing.Size(849, 374);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seçenekler";
             // 
             // groupBox2
             // 
-            this.groupBox2.Location = new System.Drawing.Point(572, 36);
+            this.groupBox2.Location = new System.Drawing.Point(867, 36);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(455, 341);
+            this.groupBox2.Size = new System.Drawing.Size(418, 374);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İşlemler";
@@ -67,16 +67,16 @@
             // 
             this.groupBox3.Controls.Add(this.BtnUrunler);
             this.groupBox3.Controls.Add(this.BtnCari);
-            this.groupBox3.Location = new System.Drawing.Point(1116, 36);
+            this.groupBox3.Location = new System.Drawing.Point(1307, 36);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(455, 341);
+            this.groupBox3.Size = new System.Drawing.Size(251, 374);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Diğer İşlemler";
             // 
             // BtnCari
             // 
-            this.BtnCari.Location = new System.Drawing.Point(107, 76);
+            this.BtnCari.Location = new System.Drawing.Point(27, 105);
             this.BtnCari.Name = "BtnCari";
             this.BtnCari.Size = new System.Drawing.Size(214, 53);
             this.BtnCari.TabIndex = 0;
@@ -86,7 +86,7 @@
             // 
             // BtnUrunler
             // 
-            this.BtnUrunler.Location = new System.Drawing.Point(107, 223);
+            this.BtnUrunler.Location = new System.Drawing.Point(27, 249);
             this.BtnUrunler.Name = "BtnUrunler";
             this.BtnUrunler.Size = new System.Drawing.Size(214, 53);
             this.BtnUrunler.TabIndex = 1;
@@ -97,12 +97,12 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.dataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(25, 416);
+            this.groupBox4.Location = new System.Drawing.Point(12, 416);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1546, 290);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "groupBox4";
+            this.groupBox4.Text = "Veri Tabanı";
             // 
             // dataGridView1
             // 
@@ -125,12 +125,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
-            // textBox1
+            // comboBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(117, 44);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 32);
-            this.textBox1.TabIndex = 1;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(136, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(169, 32);
+            this.comboBox1.TabIndex = 1;
             // 
             // FrmMenu
             // 
@@ -146,6 +147,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmMenu";
             this.Text = "Menu";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -165,6 +167,6 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

@@ -50,7 +50,7 @@ namespace Hal_Sistemi
         {
             // Cari(Müşteri) Sisteme Ekleme Kısmı
             baglanti.Open();
-            SqlCommand insert = new SqlCommand("INSERT INTO TBLMusteri ([TCKN/VKN],[E-FATURA],[Unvan/Adi],VergiDairesi,Adres,Telefon,[E-Posta]) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7)", baglanti);
+            SqlCommand insert = new SqlCommand("INSERT INTO TBLMusteri (tcknvkn,efatura,unvanad,VergiDairesi,Adres,Telefon,eposta) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7)", baglanti);
             insert.Parameters.AddWithValue("@P1", TxtTCKNVKN.Text);
             insert.Parameters.AddWithValue("@P2", TxtEFatura.Text);
             insert.Parameters.AddWithValue("@P3", TxtUnvanAd.Text);
@@ -87,7 +87,7 @@ namespace Hal_Sistemi
         {
             // Güncelleme İşlemi
             baglanti.Open();
-            SqlCommand update = new SqlCommand("Update TBLMusteri set [TCKN/VKN] =@P1,[E-FATURA] =@P2,[Unvan/Adi]=@P3,VergiDairesi=@P4,Adres=@P5,Telefon=@P6,[E-Posta]=@P7 Where Cariid=@P8 ", baglanti);
+            SqlCommand update = new SqlCommand("Update TBLMusteri set tcknvkn =@P1,efatura =@P2,unvanad =@P3,VergiDairesi=@P4,Adres=@P5,Telefon=@P6,eposta=@P7 Where ID=@P8 ", baglanti);
             update.Parameters.AddWithValue("@P1", TxtTCKNVKN.Text);
             update.Parameters.AddWithValue("@P2", TxtEFatura.Text);
             update.Parameters.AddWithValue("@P3", TxtUnvanAd.Text);
@@ -108,7 +108,7 @@ namespace Hal_Sistemi
         {
             // Silme İşlemi
             baglanti.Open();
-            SqlCommand delete = new SqlCommand("Delete from TBLMusteri Where Cariid =@P1", baglanti);
+            SqlCommand delete = new SqlCommand("Delete from TBLMusteri Where ID =@P1", baglanti);
             delete.Parameters.AddWithValue("@P1", Txtid.Text);
             delete.ExecuteNonQuery();
             baglanti.Close();

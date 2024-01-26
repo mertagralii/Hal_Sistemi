@@ -80,6 +80,7 @@
             this.TxtHalSifre.Name = "TxtHalSifre";
             this.TxtHalSifre.Size = new System.Drawing.Size(219, 32);
             this.TxtHalSifre.TabIndex = 5;
+            this.TxtHalSifre.UseSystemPasswordChar = true;
             // 
             // label3
             // 

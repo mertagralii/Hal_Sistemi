@@ -72,6 +72,7 @@
     <Compile Include="FrmUrun.Designer.cs">
       <DependentUpon>FrmUrun.cs</DependentUpon>
     </Compile>
+    <Compile Include="VeriTabani.cs" />
     <EmbeddedResource Include="FrmCari.resx">
       <DependentUpon>FrmCari.cs</DependentUpon>
     </EmbeddedResource>

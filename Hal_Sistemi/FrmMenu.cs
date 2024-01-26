@@ -22,14 +22,31 @@ namespace Hal_Sistemi
 
         private void BtnCari_Click(object sender, EventArgs e)
         {
+            // Cari(Müşteri) Kısmını açma
             FrmCari cari = new FrmCari();
             cari.Show();
         }
 
         private void BtnUrunler_Click(object sender, EventArgs e)
         {
+            // Urunler kısmını açma
             FrmUrun urun = new FrmUrun();   
             urun.Show();
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            // 
+            baglanti.Open();
+            SqlCommand cari = new SqlCommand("Select ID from TBLMusteri", baglanti);
+            cari.CommandType = CommandType.Text;
+            SqlDataReader dr = cari.ExecuteReader();
+            while (dr.Read())
+            {
+                comboBox1.Items.Add(dr["ID"]);
+            }
+            baglanti.Close();
+
         }
     }
 }
