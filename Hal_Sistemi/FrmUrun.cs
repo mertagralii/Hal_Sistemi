@@ -22,7 +22,7 @@ namespace Hal_Sistemi
         void listeleme()
         {
             // Listeleme Metodu
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TBLUrun", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT MusteriID,tcknvkn AS 'TCKN/VKN',efatura AS 'E-Fatura' ,unvanad AS 'Ünvan/Ad' ,VergiDairesi,Adres,Telefon,UrunAd AS 'Ürün Adı',Birim,Cinsi,Mensei,BirimFiyat,KDV FROM TBLUrun INNER JOIN TBLMusteri\r\nON TBLUrun.MusteriID = TBLMusteri.ID\r\n", baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
