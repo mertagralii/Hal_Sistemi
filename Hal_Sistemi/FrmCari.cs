@@ -23,7 +23,7 @@ namespace Hal_Sistemi
         void listeleme()
         {
             // Listeleme Metodu
-            SqlDataAdapter da = new SqlDataAdapter("SELECT * FROM TBLMusteri", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT ID,tcknvkn as 'TCKN/VKN',efatura AS 'E-Fatura',unvanad as 'Ünvan/Ad',VergiDairesi,Adres,Telefon,eposta as 'E-Posta' FROM TBLMusteri", baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -44,6 +44,8 @@ namespace Hal_Sistemi
         {
             // Form açıldığında datagrid'e tabloları çekme kısmı
             listeleme();
+
+           
         }
 
         private void BtnSistemKaydet_Click(object sender, EventArgs e)
@@ -51,9 +53,18 @@ namespace Hal_Sistemi
             // Cari(Müşteri) Sisteme Ekleme Kısmı
             baglanti.Open();
             SqlCommand insert = new SqlCommand("INSERT INTO TBLMusteri (tcknvkn,efatura,unvanad,VergiDairesi,Adres,Telefon,eposta) VALUES (@P1,@P2,@P3,@P4,@P5,@P6,@P7)", baglanti);
+            if ("@P1".Length == 10)
+            {
+                TxtUnvanAd.Text = "Tüzel";
+                insert.Parameters.AddWithValue("@P3", TxtUnvanAd.Text);
+            }
+            else
+            {
+                TxtUnvanAd.Text = "Şahıs";
+                insert.Parameters.AddWithValue("@P3",TxtUnvanAd.Text);
+            }
             insert.Parameters.AddWithValue("@P1", TxtTCKNVKN.Text);
             insert.Parameters.AddWithValue("@P2", TxtEFatura.Text);
-            insert.Parameters.AddWithValue("@P3", TxtUnvanAd.Text);
             insert.Parameters.AddWithValue("@P4", TxtVergiDairesi.Text);
             insert.Parameters.AddWithValue("@P5", TxtAdres.Text);
             insert.Parameters.AddWithValue("@P6", MskTelefon.Text);

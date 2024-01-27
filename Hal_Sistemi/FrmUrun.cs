@@ -41,6 +41,7 @@ namespace Hal_Sistemi
         }
         void musterigetir()
         {
+            
             baglanti.Open();
             SqlCommand cari = new SqlCommand("Select ID from TBLMusteri", baglanti);
             cari.CommandType = CommandType.Text;
@@ -54,6 +55,7 @@ namespace Hal_Sistemi
 
         private void Urun_Load(object sender, EventArgs e)
         {
+            // LOAD EKRANI
             musterigetir();
 
             listeleme();

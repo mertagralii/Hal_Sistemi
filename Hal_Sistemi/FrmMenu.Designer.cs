@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.BtnCari = new System.Windows.Forms.Button();
             this.BtnUrunler = new System.Windows.Forms.Button();
+            this.BtnCari = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -53,6 +53,23 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Seçenekler";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(136, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(169, 32);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(31, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(61, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "label1";
             // 
             // groupBox2
             // 
@@ -74,16 +91,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Diğer İşlemler";
             // 
-            // BtnCari
-            // 
-            this.BtnCari.Location = new System.Drawing.Point(27, 105);
-            this.BtnCari.Name = "BtnCari";
-            this.BtnCari.Size = new System.Drawing.Size(214, 53);
-            this.BtnCari.TabIndex = 0;
-            this.BtnCari.Text = "Müşteri(Cari)";
-            this.BtnCari.UseVisualStyleBackColor = true;
-            this.BtnCari.Click += new System.EventHandler(this.BtnCari_Click);
-            // 
             // BtnUrunler
             // 
             this.BtnUrunler.Location = new System.Drawing.Point(27, 249);
@@ -93,6 +100,16 @@
             this.BtnUrunler.Text = "Ürünler";
             this.BtnUrunler.UseVisualStyleBackColor = true;
             this.BtnUrunler.Click += new System.EventHandler(this.BtnUrunler_Click);
+            // 
+            // BtnCari
+            // 
+            this.BtnCari.Location = new System.Drawing.Point(27, 105);
+            this.BtnCari.Name = "BtnCari";
+            this.BtnCari.Size = new System.Drawing.Size(214, 53);
+            this.BtnCari.TabIndex = 0;
+            this.BtnCari.Text = "Müşteri(Cari)";
+            this.BtnCari.UseVisualStyleBackColor = true;
+            this.BtnCari.Click += new System.EventHandler(this.BtnCari_Click);
             // 
             // groupBox4
             // 
@@ -116,23 +133,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1540, 259);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 52);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(136, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 32);
-            this.comboBox1.TabIndex = 1;
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -144,7 +144,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMenu";
             this.Text = "Menu";
             this.Load += new System.EventHandler(this.FrmMenu_Load);
