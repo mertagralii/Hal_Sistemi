@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
+
 namespace Hal_Sistemi
 {
     public partial class FrmMenu : Form
@@ -30,11 +31,20 @@ namespace Hal_Sistemi
             while (dr.Read())
             {
 
-                //comboBox1.Items.Add(new ComboBoxItem((int)dr["ID"], dr["Unvan"].ToString()));
-                comboBox1.Items.Add(dr["ID"]);
+                comboBox1.Items.Add(dr["Unvan"]);
+                
             }
             baglanti.Close();
         }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null && comboBox1.SelectedItem is DataRowView selectedRow)
+            {
+                int selectedID = Convert.ToInt32(selectedRow["ID"]);
+                MessageBox.Show("Seçilen ID: " + selectedID);
+            }
+        }
+
         // CariHareket Tablosunu getirme
 
         void carihareket()
