@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classlar\ComboBoxItem.cs" />
     <Compile Include="FrmCari.cs">
       <SubType>Form</SubType>
     </Compile>

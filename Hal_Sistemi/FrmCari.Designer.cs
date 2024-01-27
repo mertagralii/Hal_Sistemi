@@ -41,9 +41,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.TxtUnvanAd = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TxtEFatura = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TxtTCKNVKN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnSistemKaydet = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -51,6 +49,9 @@
             this.BtnGüncelle = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.MskTCKNVKN = new System.Windows.Forms.MaskedTextBox();
+            this.RBEvet = new System.Windows.Forms.RadioButton();
+            this.RBHayir = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -59,6 +60,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.RBHayir);
+            this.groupBox1.Controls.Add(this.RBEvet);
+            this.groupBox1.Controls.Add(this.MskTCKNVKN);
             this.groupBox1.Controls.Add(this.Txtid);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.MskTelefon);
@@ -71,15 +75,13 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.TxtUnvanAd);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.TxtEFatura);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.TxtTCKNVKN);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 29);
+            this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(531, 394);
+            this.groupBox1.Size = new System.Drawing.Size(531, 410);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cari(Müşteri) Kısmı";
@@ -106,7 +108,7 @@
             // 
             // MskTelefon
             // 
-            this.MskTelefon.Location = new System.Drawing.Point(172, 298);
+            this.MskTelefon.Location = new System.Drawing.Point(172, 247);
             this.MskTelefon.Mask = "(999) 000-0000";
             this.MskTelefon.Name = "MskTelefon";
             this.MskTelefon.Size = new System.Drawing.Size(221, 32);
@@ -114,7 +116,7 @@
             // 
             // TxtEposta
             // 
-            this.TxtEposta.Location = new System.Drawing.Point(172, 354);
+            this.TxtEposta.Location = new System.Drawing.Point(172, 113);
             this.TxtEposta.Margin = new System.Windows.Forms.Padding(4);
             this.TxtEposta.Name = "TxtEposta";
             this.TxtEposta.Size = new System.Drawing.Size(221, 32);
@@ -123,7 +125,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 362);
+            this.label7.Location = new System.Drawing.Point(78, 121);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(86, 24);
@@ -133,7 +135,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(84, 306);
+            this.label6.Location = new System.Drawing.Point(84, 255);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(80, 24);
@@ -142,7 +144,7 @@
             // 
             // TxtAdres
             // 
-            this.TxtAdres.Location = new System.Drawing.Point(172, 244);
+            this.TxtAdres.Location = new System.Drawing.Point(172, 193);
             this.TxtAdres.Margin = new System.Windows.Forms.Padding(4);
             this.TxtAdres.Name = "TxtAdres";
             this.TxtAdres.Size = new System.Drawing.Size(221, 32);
@@ -151,7 +153,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(99, 252);
+            this.label5.Location = new System.Drawing.Point(99, 201);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 24);
@@ -160,7 +162,7 @@
             // 
             // TxtVergiDairesi
             // 
-            this.TxtVergiDairesi.Location = new System.Drawing.Point(172, 204);
+            this.TxtVergiDairesi.Location = new System.Drawing.Point(172, 351);
             this.TxtVergiDairesi.Margin = new System.Windows.Forms.Padding(4);
             this.TxtVergiDairesi.Name = "TxtVergiDairesi";
             this.TxtVergiDairesi.Size = new System.Drawing.Size(221, 32);
@@ -169,7 +171,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 207);
+            this.label4.Location = new System.Drawing.Point(36, 354);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 24);
@@ -194,31 +196,15 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Ünvan/Adı :";
             // 
-            // TxtEFatura
-            // 
-            this.TxtEFatura.Location = new System.Drawing.Point(172, 113);
-            this.TxtEFatura.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtEFatura.Name = "TxtEFatura";
-            this.TxtEFatura.Size = new System.Drawing.Size(221, 32);
-            this.TxtEFatura.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(74, 121);
+            this.label2.Location = new System.Drawing.Point(74, 306);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(90, 24);
             this.label2.TabIndex = 2;
             this.label2.Text = "E-Fatura:";
-            // 
-            // TxtTCKNVKN
-            // 
-            this.TxtTCKNVKN.Location = new System.Drawing.Point(172, 73);
-            this.TxtTCKNVKN.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtTCKNVKN.Name = "TxtTCKNVKN";
-            this.TxtTCKNVKN.Size = new System.Drawing.Size(221, 32);
-            this.TxtTCKNVKN.TabIndex = 1;
             // 
             // label1
             // 
@@ -245,11 +231,11 @@
             this.groupBox2.Controls.Add(this.BtnSil);
             this.groupBox2.Controls.Add(this.BtnSistemKaydet);
             this.groupBox2.Controls.Add(this.BtnGüncelle);
-            this.groupBox2.Location = new System.Drawing.Point(612, 29);
+            this.groupBox2.Location = new System.Drawing.Point(612, 13);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(436, 394);
+            this.groupBox2.Size = new System.Drawing.Size(436, 410);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İşlemler";
@@ -298,6 +284,37 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
+            // MskTCKNVKN
+            // 
+            this.MskTCKNVKN.Location = new System.Drawing.Point(172, 78);
+            this.MskTCKNVKN.Mask = "00000000000";
+            this.MskTCKNVKN.Name = "MskTCKNVKN";
+            this.MskTCKNVKN.Size = new System.Drawing.Size(221, 32);
+            this.MskTCKNVKN.TabIndex = 17;
+            this.MskTCKNVKN.TextChanged += new System.EventHandler(this.MskTCKNVKN_TextChanged);
+            // 
+            // RBEvet
+            // 
+            this.RBEvet.AutoSize = true;
+            this.RBEvet.Location = new System.Drawing.Point(172, 309);
+            this.RBEvet.Name = "RBEvet";
+            this.RBEvet.Size = new System.Drawing.Size(70, 28);
+            this.RBEvet.TabIndex = 18;
+            this.RBEvet.TabStop = true;
+            this.RBEvet.Text = "Evet";
+            this.RBEvet.UseVisualStyleBackColor = true;
+            // 
+            // RBHayir
+            // 
+            this.RBHayir.AutoSize = true;
+            this.RBHayir.Location = new System.Drawing.Point(266, 309);
+            this.RBHayir.Name = "RBHayir";
+            this.RBHayir.Size = new System.Drawing.Size(77, 28);
+            this.RBHayir.TabIndex = 19;
+            this.RBHayir.TabStop = true;
+            this.RBHayir.Text = "Hayır";
+            this.RBHayir.UseVisualStyleBackColor = true;
+            // 
             // FrmCari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -333,9 +350,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtUnvanAd;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtEFatura;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtTCKNVKN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnSistemKaydet;
         private System.Windows.Forms.TextBox TxtEposta;
@@ -346,6 +361,9 @@
         private System.Windows.Forms.MaskedTextBox MskTelefon;
         private System.Windows.Forms.TextBox Txtid;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.MaskedTextBox MskTCKNVKN;
+        private System.Windows.Forms.RadioButton RBEvet;
+        private System.Windows.Forms.RadioButton RBHayir;
     }
 }
 

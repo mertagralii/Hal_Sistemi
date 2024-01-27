@@ -49,8 +49,6 @@
             this.BtnEkle = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.CmbMusteri = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -59,8 +57,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.CmbMusteri);
-            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.TxtUrunid);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.CmbBirim);
@@ -107,10 +103,11 @@
             "ADET",
             "ÇUVAL",
             "KASA"});
-            this.CmbBirim.Location = new System.Drawing.Point(147, 158);
+            this.CmbBirim.Location = new System.Drawing.Point(147, 139);
             this.CmbBirim.Name = "CmbBirim";
             this.CmbBirim.Size = new System.Drawing.Size(290, 32);
             this.CmbBirim.TabIndex = 2;
+            this.CmbBirim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CmbBirim_KeyPress);
             // 
             // TxtKDVOran
             // 
@@ -130,7 +127,7 @@
             // 
             // TxtBirimFiyat
             // 
-            this.TxtBirimFiyat.Location = new System.Drawing.Point(147, 320);
+            this.TxtBirimFiyat.Location = new System.Drawing.Point(147, 315);
             this.TxtBirimFiyat.Name = "TxtBirimFiyat";
             this.TxtBirimFiyat.Size = new System.Drawing.Size(290, 32);
             this.TxtBirimFiyat.TabIndex = 5;
@@ -138,7 +135,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(11, 328);
+            this.label5.Location = new System.Drawing.Point(11, 323);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(114, 24);
             this.label5.TabIndex = 8;
@@ -146,7 +143,7 @@
             // 
             // TxtMensei
             // 
-            this.TxtMensei.Location = new System.Drawing.Point(147, 268);
+            this.TxtMensei.Location = new System.Drawing.Point(147, 257);
             this.TxtMensei.Name = "TxtMensei";
             this.TxtMensei.Size = new System.Drawing.Size(290, 32);
             this.TxtMensei.TabIndex = 4;
@@ -154,7 +151,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(47, 276);
+            this.label4.Location = new System.Drawing.Point(47, 265);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 24);
             this.label4.TabIndex = 6;
@@ -163,7 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(72, 218);
+            this.label3.Location = new System.Drawing.Point(72, 208);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(52, 24);
             this.label3.TabIndex = 4;
@@ -171,7 +168,7 @@
             // 
             // TxtCins
             // 
-            this.TxtCins.Location = new System.Drawing.Point(147, 210);
+            this.TxtCins.Location = new System.Drawing.Point(147, 200);
             this.TxtCins.Name = "TxtCins";
             this.TxtCins.Size = new System.Drawing.Size(290, 32);
             this.TxtCins.TabIndex = 3;
@@ -179,7 +176,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 166);
+            this.label2.Location = new System.Drawing.Point(62, 147);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 24);
             this.label2.TabIndex = 2;
@@ -187,7 +184,7 @@
             // 
             // TxtUrunAd
             // 
-            this.TxtUrunAd.Location = new System.Drawing.Point(147, 109);
+            this.TxtUrunAd.Location = new System.Drawing.Point(147, 81);
             this.TxtUrunAd.Name = "TxtUrunAd";
             this.TxtUrunAd.Size = new System.Drawing.Size(290, 32);
             this.TxtUrunAd.TabIndex = 1;
@@ -195,7 +192,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 115);
+            this.label1.Location = new System.Drawing.Point(34, 87);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(91, 24);
             this.label1.TabIndex = 0;
@@ -266,23 +263,6 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(42, 69);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(82, 24);
-            this.label8.TabIndex = 15;
-            this.label8.Text = "Müşteri:";
-            // 
-            // CmbMusteri
-            // 
-            this.CmbMusteri.FormattingEnabled = true;
-            this.CmbMusteri.Location = new System.Drawing.Point(147, 68);
-            this.CmbMusteri.Name = "CmbMusteri";
-            this.CmbMusteri.Size = new System.Drawing.Size(290, 32);
-            this.CmbMusteri.TabIndex = 16;
-            // 
             // FrmUrun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -329,7 +309,5 @@
         private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.TextBox TxtUrunid;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox CmbMusteri;
     }
 }

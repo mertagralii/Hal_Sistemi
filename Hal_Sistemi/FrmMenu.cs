@@ -24,11 +24,13 @@ namespace Hal_Sistemi
         void musterigetir()
         {
             baglanti.Open();
-            SqlCommand cari = new SqlCommand("Select ID from TBLMusteri", baglanti);
+            SqlCommand cari = new SqlCommand("Select ID,Unvan from TBLMusteri", baglanti);
             cari.CommandType = CommandType.Text;
             SqlDataReader dr = cari.ExecuteReader();
             while (dr.Read())
             {
+
+                //comboBox1.Items.Add(new ComboBoxItem((int)dr["ID"], dr["Unvan"].ToString()));
                 comboBox1.Items.Add(dr["ID"]);
             }
             baglanti.Close();
@@ -38,7 +40,7 @@ namespace Hal_Sistemi
         void carihareket()
         {
             SqlCommand komut = new SqlCommand("Select * From TBLCariHareket Where MusteriID=@P1", baglanti);
-            komut.Parameters.AddWithValue("@P1",comboBox1.Text);
+            komut.Parameters.AddWithValue("@P1", comboBox1.Text);
             SqlDataAdapter da = new SqlDataAdapter(komut);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -56,7 +58,7 @@ namespace Hal_Sistemi
         private void BtnUrunler_Click(object sender, EventArgs e)
         {
             // Urunler kısmını açma
-            FrmUrun urun = new FrmUrun();   
+            FrmUrun urun = new FrmUrun();
             urun.Show();
         }
 
