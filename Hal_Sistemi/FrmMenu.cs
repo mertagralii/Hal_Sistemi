@@ -29,11 +29,9 @@ namespace Hal_Sistemi
             cari.CommandType = CommandType.Text;
             SqlDataReader dr = cari.ExecuteReader();
             while (dr.Read())
-            {
-
+            { 
                 CmbMusteri.Items.Add(dr["Unvan"]);
-
-            }
+             }
             baglanti.Close();
         }
         // Ürün Getir
