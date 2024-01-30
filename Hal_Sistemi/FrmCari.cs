@@ -33,6 +33,7 @@ namespace Hal_Sistemi
         void temizleme()
         {
             //TextBox Temizleme
+            Txtid.Text = " ";
             MskTCKNVKN.Text = " ";
             RBEvet.Checked = false;
             TxtUnvanAd.Text = " ";

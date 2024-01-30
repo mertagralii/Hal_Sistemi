@@ -20,37 +20,10 @@ namespace Hal_Sistemi
         }
         // SQL Bağlantısı
         SqlConnection baglanti = new SqlConnection(@"Data Source=Mert;Initial Catalog=DbHalSistem;Integrated Security=True");
-
-        // Musteri IDlerini getirme
-        void musterigetir()
-        {
-            baglanti.Open();
-            SqlCommand cari = new SqlCommand("Select ID,Unvan from TBLMusteri Where SilindiMi = 0", baglanti);
-            cari.CommandType = CommandType.Text;
-            SqlDataReader dr = cari.ExecuteReader();
-            while (dr.Read())
-            { 
-                CmbMusteri.Items.Add(dr["Unvan"]);
-             }
-            baglanti.Close();
-        }
-        // Ürün Getir
-        void ürüngetir()
-        {
-            baglanti.Open();
-            SqlCommand urun = new SqlCommand("Select ID,UrunAd from TBLUrun Where SilindiMi=0", baglanti);
-            urun.CommandType = CommandType.Text;
-            SqlDataReader dr = urun.ExecuteReader();
-            while (dr.Read())
-            {
-                comboBox2.Items.Add(dr["UrunAd"]);
-            }
-            baglanti.Close();
-        }
         void listeleme()
         {
             // Listeleme Metodu
-            SqlDataAdapter da = new SqlDataAdapter("SELECT TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',Tckn AS 'TCKN',Vkn AS 'Vergi Kimlik Numarası',EFatura AS 'E-Fatura' ,Unvan AS 'Ünvan' ,VergiDairesi,Adres,Telefon,UrunAd AS 'Ürün Adı',Birim,Cinsi,Mensei,BirimFiyat,KDV FROM TBLUrun INNER JOIN TBLMusteri\r\nON TBLUrun.ID = TBLMusteri.ID\r\n", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',TBLMusteri.Tckn AS 'TCKN', TBLMusteri.Vkn AS 'Vergi Kimlik Numarası',TBLMusteri.EFatura AS 'E-Fatura' ,TBLMusteri.Unvan AS 'Ünvan' ,TBLMusteri.VergiDairesi,TBLMusteri.Adres,TBLMusteri.Telefon,TBLUrun.UrunAd AS 'Ürün Adı', TBLUrun.Birim,TBLUrun.Cinsi,TBLUrun.Mensei,TBLUrun.BirimFiyat,TBLUrun.KDV FROM TBLCariHareket INNER JOIN TBLMusteri \r\nON\r\nTBLMusteri.ID = TBLCariHareket.MusteriID inner join TBLUrun\r\non\r\nTBLUrun.ID = TBLCariHareket.UrunID    ", baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -67,18 +40,8 @@ namespace Hal_Sistemi
 
         }
 
-        // CariHareket Tablosunu getirme
 
-        void carihareket()
-        {
-            SqlCommand komut = new SqlCommand("Select * From TBLCariHareket Where MusteriID=@P1", baglanti);
-            komut.Parameters.AddWithValue("@P1", CmbMusteri.Text);
-            SqlDataAdapter da = new SqlDataAdapter(komut);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-
-        }
+        
 
 
         private void BtnCari_Click(object sender, EventArgs e)
@@ -97,9 +60,7 @@ namespace Hal_Sistemi
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            musterigetir();
-            carihareket();
-            ürüngetir();
+           
             listeleme();
 
         }
