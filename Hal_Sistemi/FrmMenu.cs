@@ -20,6 +20,9 @@ namespace Hal_Sistemi
         }
         // SQL Bağlantısı
         SqlConnection baglanti = new SqlConnection(@"Data Source=Mert;Initial Catalog=DbHalSistem;Integrated Security=True");
+
+        int deger = 0;
+
         void listeleme()
         {
             // Listeleme Metodu (innerjoinli)
@@ -48,6 +51,7 @@ namespace Hal_Sistemi
             TxtCariID.Text = " ";
             TxtMüsteriID.Text = " ";
             TxtUrunID.Text = " ";
+            RBEvet.Checked = false;
         }
         private void BtnCari_Click(object sender, EventArgs e)
         {
@@ -122,6 +126,53 @@ namespace Hal_Sistemi
         {
             // Klavye Girişini Engelle
             e.Handled = true;
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Datagrid'den gelen verileri kutulara yerleştirme
+            int secilen = dataGridView1.SelectedCells[0].RowIndex;
+            TxtCariID.Text = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
+            TxtMüsteriID.Text = dataGridView1.Rows[secilen].Cells[2].Value.ToString();
+            TxtUrunID.Text = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
+            if (dataGridView1.Rows[secilen].Cells[3].Value.ToString() == "")
+            {
+                MskTcknVkn.Text = dataGridView1.Rows[secilen].Cells[4].Value.ToString();
+            }
+            else
+            {
+                MskTcknVkn.Text = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
+            }
+
+            TxtUnvan.Text = dataGridView1.Rows[secilen].Cells[6].Value.ToString();
+            if (dataGridView1.Rows[secilen].Cells[5].Value.ToString() == "True")
+            {
+                deger = 1;
+                RBEvet.Checked = true;
+
+            }
+            else
+            {
+                deger = 0;
+                RBHayır.Checked = true;
+            }
+            TxtVergiDairesi.Text = dataGridView1.Rows[secilen].Cells[7].Value.ToString();
+            TxtAdres.Text = dataGridView1.Rows[secilen].Cells[8].Value.ToString();
+            MskTelefon.Text = dataGridView1.Rows[secilen].Cells[9].Value.ToString();
+            TxtEposta.Text = dataGridView1.Rows[secilen].Cells[10].Value.ToString();
+            TxtUrunAd.Text = dataGridView1.Rows[secilen].Cells[11].Value.ToString();
+            CmbBirim.Text = dataGridView1.Rows[secilen].Cells[12].Value.ToString();
+            TxtCinsi.Text = dataGridView1.Rows[secilen].Cells[13].Value.ToString();
+            TxtMensei.Text = dataGridView1.Rows[secilen].Cells[14].Value.ToString();
+            TxtBirimAdet.Text = dataGridView1.Rows[secilen].Cells[15].Value.ToString();
+            TxtBirimFiyat.Text = dataGridView1.Rows[secilen].Cells[16].Value.ToString();
+            TxtKDV.Text = dataGridView1.Rows[secilen].Cells[17].Value.ToString();
+            LBTutar.Text = dataGridView1.Rows[secilen].Cells[18].Value.ToString() + " " + " TL"; 
+
+
+
+
+
         }
     }
 }

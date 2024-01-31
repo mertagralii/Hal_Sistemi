@@ -49,35 +49,35 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.MskTcknVkn = new System.Windows.Forms.MaskedTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtUnvan = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.RBEvet = new System.Windows.Forms.RadioButton();
             this.RBHayır = new System.Windows.Forms.RadioButton();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtVergiDairesi = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtAdres = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.MskTelefon = new System.Windows.Forms.MaskedTextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TxtEposta = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.TxtUrunAd = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TxtCinsi = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.TxtMensei = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.TxtBirimAdet = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.TxtBirimFiyat = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.TxtKDV = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.LBTutar = new System.Windows.Forms.Label();
             this.CmbBirim = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -89,35 +89,35 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.CmbBirim);
-            this.groupBox1.Controls.Add(this.label20);
+            this.groupBox1.Controls.Add(this.LBTutar);
             this.groupBox1.Controls.Add(this.label19);
-            this.groupBox1.Controls.Add(this.textBox11);
+            this.groupBox1.Controls.Add(this.TxtKDV);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.textBox10);
+            this.groupBox1.Controls.Add(this.TxtBirimFiyat);
             this.groupBox1.Controls.Add(this.label17);
-            this.groupBox1.Controls.Add(this.textBox9);
+            this.groupBox1.Controls.Add(this.TxtBirimAdet);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.TxtMensei);
             this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.TxtCinsi);
             this.groupBox1.Controls.Add(this.label13);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.TxtUrunAd);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.TxtEposta);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.maskedTextBox2);
+            this.groupBox1.Controls.Add(this.MskTelefon);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.TxtAdres);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.TxtVergiDairesi);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.RBHayır);
             this.groupBox1.Controls.Add(this.RBEvet);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.TxtUnvan);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.MskTcknVkn);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.TxtMüsteriID);
             this.groupBox1.Controls.Add(this.label3);
@@ -314,6 +314,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1476, 259);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // label5
             // 
@@ -324,14 +325,14 @@
             this.label5.TabIndex = 6;
             this.label5.Text = "TCKN/VKN:";
             // 
-            // maskedTextBox1
+            // MskTcknVkn
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(131, 188);
-            this.maskedTextBox1.Mask = "00000000000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.ReadOnly = true;
-            this.maskedTextBox1.Size = new System.Drawing.Size(132, 32);
-            this.maskedTextBox1.TabIndex = 7;
+            this.MskTcknVkn.Location = new System.Drawing.Point(131, 188);
+            this.MskTcknVkn.Mask = "00000000000";
+            this.MskTcknVkn.Name = "MskTcknVkn";
+            this.MskTcknVkn.ReadOnly = true;
+            this.MskTcknVkn.Size = new System.Drawing.Size(132, 32);
+            this.MskTcknVkn.TabIndex = 7;
             // 
             // label6
             // 
@@ -342,13 +343,13 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "Ünvan:";
             // 
-            // textBox1
+            // TxtUnvan
             // 
-            this.textBox1.Location = new System.Drawing.Point(131, 239);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(135, 32);
-            this.textBox1.TabIndex = 9;
+            this.TxtUnvan.Location = new System.Drawing.Point(131, 239);
+            this.TxtUnvan.Name = "TxtUnvan";
+            this.TxtUnvan.ReadOnly = true;
+            this.TxtUnvan.Size = new System.Drawing.Size(135, 32);
+            this.TxtUnvan.TabIndex = 9;
             // 
             // label7
             // 
@@ -362,6 +363,7 @@
             // RBEvet
             // 
             this.RBEvet.AutoSize = true;
+            this.RBEvet.Enabled = false;
             this.RBEvet.Location = new System.Drawing.Point(128, 314);
             this.RBEvet.Name = "RBEvet";
             this.RBEvet.Size = new System.Drawing.Size(70, 28);
@@ -373,6 +375,7 @@
             // RBHayır
             // 
             this.RBHayır.AutoSize = true;
+            this.RBHayır.Enabled = false;
             this.RBHayır.Location = new System.Drawing.Point(204, 314);
             this.RBHayır.Name = "RBHayır";
             this.RBHayır.Size = new System.Drawing.Size(77, 28);
@@ -381,13 +384,13 @@
             this.RBHayır.Text = "Hayır";
             this.RBHayır.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // TxtVergiDairesi
             // 
-            this.textBox2.Location = new System.Drawing.Point(418, 22);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(135, 32);
-            this.textBox2.TabIndex = 14;
+            this.TxtVergiDairesi.Location = new System.Drawing.Point(418, 22);
+            this.TxtVergiDairesi.Name = "TxtVergiDairesi";
+            this.TxtVergiDairesi.ReadOnly = true;
+            this.TxtVergiDairesi.Size = new System.Drawing.Size(135, 32);
+            this.TxtVergiDairesi.TabIndex = 14;
             // 
             // label8
             // 
@@ -398,13 +401,13 @@
             this.label8.TabIndex = 13;
             this.label8.Text = "Vergi Dairesi:";
             // 
-            // textBox3
+            // TxtAdres
             // 
-            this.textBox3.Location = new System.Drawing.Point(418, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(135, 32);
-            this.textBox3.TabIndex = 16;
+            this.TxtAdres.Location = new System.Drawing.Point(418, 71);
+            this.TxtAdres.Name = "TxtAdres";
+            this.TxtAdres.ReadOnly = true;
+            this.TxtAdres.Size = new System.Drawing.Size(135, 32);
+            this.TxtAdres.TabIndex = 16;
             // 
             // label9
             // 
@@ -415,14 +418,14 @@
             this.label9.TabIndex = 15;
             this.label9.Text = "Adres:";
             // 
-            // maskedTextBox2
+            // MskTelefon
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(418, 136);
-            this.maskedTextBox2.Mask = "(999) 000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.ReadOnly = true;
-            this.maskedTextBox2.Size = new System.Drawing.Size(132, 32);
-            this.maskedTextBox2.TabIndex = 18;
+            this.MskTelefon.Location = new System.Drawing.Point(418, 136);
+            this.MskTelefon.Mask = "(999) 000-0000";
+            this.MskTelefon.Name = "MskTelefon";
+            this.MskTelefon.ReadOnly = true;
+            this.MskTelefon.Size = new System.Drawing.Size(132, 32);
+            this.MskTelefon.TabIndex = 18;
             // 
             // label10
             // 
@@ -433,13 +436,13 @@
             this.label10.TabIndex = 17;
             this.label10.Text = "Telefon:";
             // 
-            // textBox4
+            // TxtEposta
             // 
-            this.textBox4.Location = new System.Drawing.Point(418, 188);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(135, 32);
-            this.textBox4.TabIndex = 20;
+            this.TxtEposta.Location = new System.Drawing.Point(418, 188);
+            this.TxtEposta.Name = "TxtEposta";
+            this.TxtEposta.ReadOnly = true;
+            this.TxtEposta.Size = new System.Drawing.Size(135, 32);
+            this.TxtEposta.TabIndex = 20;
             // 
             // label11
             // 
@@ -450,13 +453,13 @@
             this.label11.TabIndex = 19;
             this.label11.Text = "E-Posta:";
             // 
-            // textBox5
+            // TxtUrunAd
             // 
-            this.textBox5.Location = new System.Drawing.Point(421, 239);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(135, 32);
-            this.textBox5.TabIndex = 22;
+            this.TxtUrunAd.Location = new System.Drawing.Point(421, 239);
+            this.TxtUrunAd.Name = "TxtUrunAd";
+            this.TxtUrunAd.ReadOnly = true;
+            this.TxtUrunAd.Size = new System.Drawing.Size(135, 32);
+            this.TxtUrunAd.TabIndex = 22;
             // 
             // label12
             // 
@@ -467,13 +470,13 @@
             this.label12.TabIndex = 21;
             this.label12.Text = "Ürün Adı:";
             // 
-            // textBox6
+            // TxtCinsi
             // 
-            this.textBox6.Location = new System.Drawing.Point(421, 310);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(135, 32);
-            this.textBox6.TabIndex = 24;
+            this.TxtCinsi.Location = new System.Drawing.Point(421, 310);
+            this.TxtCinsi.Name = "TxtCinsi";
+            this.TxtCinsi.ReadOnly = true;
+            this.TxtCinsi.Size = new System.Drawing.Size(135, 32);
+            this.TxtCinsi.TabIndex = 24;
             // 
             // label13
             // 
@@ -484,13 +487,13 @@
             this.label13.TabIndex = 23;
             this.label13.Text = "Cinsi:";
             // 
-            // textBox7
+            // TxtMensei
             // 
-            this.textBox7.Location = new System.Drawing.Point(707, 27);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(135, 32);
-            this.textBox7.TabIndex = 26;
+            this.TxtMensei.Location = new System.Drawing.Point(707, 27);
+            this.TxtMensei.Name = "TxtMensei";
+            this.TxtMensei.ReadOnly = true;
+            this.TxtMensei.Size = new System.Drawing.Size(135, 32);
+            this.TxtMensei.TabIndex = 26;
             // 
             // label14
             // 
@@ -510,13 +513,13 @@
             this.label15.TabIndex = 27;
             this.label15.Text = "Birimi:";
             // 
-            // textBox9
+            // TxtBirimAdet
             // 
-            this.textBox9.Location = new System.Drawing.Point(707, 139);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(135, 32);
-            this.textBox9.TabIndex = 30;
+            this.TxtBirimAdet.Location = new System.Drawing.Point(707, 139);
+            this.TxtBirimAdet.Name = "TxtBirimAdet";
+            this.TxtBirimAdet.ReadOnly = true;
+            this.TxtBirimAdet.Size = new System.Drawing.Size(135, 32);
+            this.TxtBirimAdet.TabIndex = 30;
             // 
             // label16
             // 
@@ -527,13 +530,13 @@
             this.label16.TabIndex = 29;
             this.label16.Text = "Birim Adet:";
             // 
-            // textBox10
+            // TxtBirimFiyat
             // 
-            this.textBox10.Location = new System.Drawing.Point(707, 188);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(135, 32);
-            this.textBox10.TabIndex = 32;
+            this.TxtBirimFiyat.Location = new System.Drawing.Point(707, 188);
+            this.TxtBirimFiyat.Name = "TxtBirimFiyat";
+            this.TxtBirimFiyat.ReadOnly = true;
+            this.TxtBirimFiyat.Size = new System.Drawing.Size(135, 32);
+            this.TxtBirimFiyat.TabIndex = 32;
             // 
             // label17
             // 
@@ -544,13 +547,13 @@
             this.label17.TabIndex = 31;
             this.label17.Text = "Birim Fiyat:";
             // 
-            // textBox11
+            // TxtKDV
             // 
-            this.textBox11.Location = new System.Drawing.Point(706, 239);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.ReadOnly = true;
-            this.textBox11.Size = new System.Drawing.Size(135, 32);
-            this.textBox11.TabIndex = 34;
+            this.TxtKDV.Location = new System.Drawing.Point(706, 239);
+            this.TxtKDV.Name = "TxtKDV";
+            this.TxtKDV.ReadOnly = true;
+            this.TxtKDV.Size = new System.Drawing.Size(135, 32);
+            this.TxtKDV.TabIndex = 34;
             // 
             // label18
             // 
@@ -570,15 +573,15 @@
             this.label19.TabIndex = 35;
             this.label19.Text = "Toplam Fiyat:";
             // 
-            // label20
+            // LBTutar
             // 
-            this.label20.AutoSize = true;
-            this.label20.ForeColor = System.Drawing.Color.Lime;
-            this.label20.Location = new System.Drawing.Point(736, 316);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(61, 24);
-            this.label20.TabIndex = 36;
-            this.label20.Text = "NULL";
+            this.LBTutar.AutoSize = true;
+            this.LBTutar.ForeColor = System.Drawing.Color.Lime;
+            this.LBTutar.Location = new System.Drawing.Point(736, 316);
+            this.LBTutar.Name = "LBTutar";
+            this.LBTutar.Size = new System.Drawing.Size(76, 24);
+            this.LBTutar.TabIndex = 36;
+            this.LBTutar.Text = "000,000";
             // 
             // CmbBirim
             // 
@@ -638,35 +641,35 @@
         private System.Windows.Forms.TextBox TxtAramaYap;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox MskTcknVkn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtUnvan;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton RBEvet;
         private System.Windows.Forms.RadioButton RBHayır;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtVergiDairesi;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtAdres;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox MskTelefon;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtEposta;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TxtUrunAd;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox TxtCinsi;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox TxtMensei;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox TxtBirimAdet;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox TxtKDV;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox TxtBirimFiyat;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label LBTutar;
         private System.Windows.Forms.ComboBox CmbBirim;
     }
 }
