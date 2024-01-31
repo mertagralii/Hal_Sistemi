@@ -205,5 +205,26 @@ namespace Hal_Sistemi
                 RBHayir.Visible = false;
             }
         }
+
+        private void BtnAramaYap_Click(object sender, EventArgs e)
+        {
+            // Arama Kısmı
+            SqlCommand search = new SqlCommand("SELECT ID,Tckn,EFatura,Unvan,VergiDairesi,Adres,Telefon,EPosta,Vkn FROM TBLMusteri WHERE Unvan LIKE @P1 AND SilindiMi =0",baglanti);
+            search.Parameters.AddWithValue("@P1", "%" + TxtAramaYap.Text + "%");
+            baglanti.Open();
+            SqlDataReader reader = search.ExecuteReader();
+            DataTable dataTable = new DataTable();
+            dataTable.Load(reader);
+            dataGridView1.DataSource = dataTable;
+            baglanti.Close();
+            MessageBox.Show("Arama işlemi Gerçekleştirildi.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+
+        }
+
+        private void BtnListele_Click(object sender, EventArgs e)
+        {
+            listeleme();
+        }
     }
 }

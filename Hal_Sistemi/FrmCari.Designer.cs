@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.RBHayir = new System.Windows.Forms.RadioButton();
+            this.RBEvet = new System.Windows.Forms.RadioButton();
+            this.MskTCKNVKN = new System.Windows.Forms.MaskedTextBox();
             this.Txtid = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.MskTelefon = new System.Windows.Forms.MaskedTextBox();
@@ -49,9 +52,10 @@
             this.BtnGüncelle = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.MskTCKNVKN = new System.Windows.Forms.MaskedTextBox();
-            this.RBEvet = new System.Windows.Forms.RadioButton();
-            this.RBHayir = new System.Windows.Forms.RadioButton();
+            this.BtnAramaYap = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.TxtAramaYap = new System.Windows.Forms.TextBox();
+            this.BtnListele = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -85,6 +89,37 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cari(Müşteri) Kısmı";
+            // 
+            // RBHayir
+            // 
+            this.RBHayir.AutoSize = true;
+            this.RBHayir.Location = new System.Drawing.Point(266, 309);
+            this.RBHayir.Name = "RBHayir";
+            this.RBHayir.Size = new System.Drawing.Size(77, 28);
+            this.RBHayir.TabIndex = 19;
+            this.RBHayir.TabStop = true;
+            this.RBHayir.Text = "Hayır";
+            this.RBHayir.UseVisualStyleBackColor = true;
+            // 
+            // RBEvet
+            // 
+            this.RBEvet.AutoSize = true;
+            this.RBEvet.Location = new System.Drawing.Point(172, 309);
+            this.RBEvet.Name = "RBEvet";
+            this.RBEvet.Size = new System.Drawing.Size(70, 28);
+            this.RBEvet.TabIndex = 18;
+            this.RBEvet.TabStop = true;
+            this.RBEvet.Text = "Evet";
+            this.RBEvet.UseVisualStyleBackColor = true;
+            // 
+            // MskTCKNVKN
+            // 
+            this.MskTCKNVKN.Location = new System.Drawing.Point(172, 78);
+            this.MskTCKNVKN.Mask = "00000000000";
+            this.MskTCKNVKN.Name = "MskTCKNVKN";
+            this.MskTCKNVKN.Size = new System.Drawing.Size(221, 32);
+            this.MskTCKNVKN.TabIndex = 17;
+            this.MskTCKNVKN.TextChanged += new System.EventHandler(this.MskTCKNVKN_TextChanged);
             // 
             // Txtid
             // 
@@ -218,7 +253,7 @@
             // 
             // BtnSistemKaydet
             // 
-            this.BtnSistemKaydet.Location = new System.Drawing.Point(105, 41);
+            this.BtnSistemKaydet.Location = new System.Drawing.Point(105, 30);
             this.BtnSistemKaydet.Name = "BtnSistemKaydet";
             this.BtnSistemKaydet.Size = new System.Drawing.Size(221, 46);
             this.BtnSistemKaydet.TabIndex = 8;
@@ -228,6 +263,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BtnListele);
+            this.groupBox2.Controls.Add(this.TxtAramaYap);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.BtnAramaYap);
             this.groupBox2.Controls.Add(this.BtnSil);
             this.groupBox2.Controls.Add(this.BtnSistemKaydet);
             this.groupBox2.Controls.Add(this.BtnGüncelle);
@@ -242,7 +281,7 @@
             // 
             // BtnSil
             // 
-            this.BtnSil.Location = new System.Drawing.Point(105, 284);
+            this.BtnSil.Location = new System.Drawing.Point(106, 185);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(221, 46);
             this.BtnSil.TabIndex = 10;
@@ -252,7 +291,7 @@
             // 
             // BtnGüncelle
             // 
-            this.BtnGüncelle.Location = new System.Drawing.Point(105, 161);
+            this.BtnGüncelle.Location = new System.Drawing.Point(105, 105);
             this.BtnGüncelle.Name = "BtnGüncelle";
             this.BtnGüncelle.Size = new System.Drawing.Size(221, 46);
             this.BtnGüncelle.TabIndex = 9;
@@ -284,36 +323,42 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // MskTCKNVKN
+            // BtnAramaYap
             // 
-            this.MskTCKNVKN.Location = new System.Drawing.Point(172, 78);
-            this.MskTCKNVKN.Mask = "00000000000";
-            this.MskTCKNVKN.Name = "MskTCKNVKN";
-            this.MskTCKNVKN.Size = new System.Drawing.Size(221, 32);
-            this.MskTCKNVKN.TabIndex = 17;
-            this.MskTCKNVKN.TextChanged += new System.EventHandler(this.MskTCKNVKN_TextChanged);
+            this.BtnAramaYap.Location = new System.Drawing.Point(333, 343);
+            this.BtnAramaYap.Name = "BtnAramaYap";
+            this.BtnAramaYap.Size = new System.Drawing.Size(81, 35);
+            this.BtnAramaYap.TabIndex = 11;
+            this.BtnAramaYap.Text = "Arama";
+            this.BtnAramaYap.UseVisualStyleBackColor = true;
+            this.BtnAramaYap.Click += new System.EventHandler(this.BtnAramaYap_Click);
             // 
-            // RBEvet
+            // label9
             // 
-            this.RBEvet.AutoSize = true;
-            this.RBEvet.Location = new System.Drawing.Point(172, 309);
-            this.RBEvet.Name = "RBEvet";
-            this.RBEvet.Size = new System.Drawing.Size(70, 28);
-            this.RBEvet.TabIndex = 18;
-            this.RBEvet.TabStop = true;
-            this.RBEvet.Text = "Evet";
-            this.RBEvet.UseVisualStyleBackColor = true;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(9, 352);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(105, 24);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Ünvan Ara:";
             // 
-            // RBHayir
+            // TxtAramaYap
             // 
-            this.RBHayir.AutoSize = true;
-            this.RBHayir.Location = new System.Drawing.Point(266, 309);
-            this.RBHayir.Name = "RBHayir";
-            this.RBHayir.Size = new System.Drawing.Size(77, 28);
-            this.RBHayir.TabIndex = 19;
-            this.RBHayir.TabStop = true;
-            this.RBHayir.Text = "Hayır";
-            this.RBHayir.UseVisualStyleBackColor = true;
+            this.TxtAramaYap.Location = new System.Drawing.Point(121, 346);
+            this.TxtAramaYap.Name = "TxtAramaYap";
+            this.TxtAramaYap.Size = new System.Drawing.Size(206, 32);
+            this.TxtAramaYap.TabIndex = 22;
+            // 
+            // BtnListele
+            // 
+            this.BtnListele.Location = new System.Drawing.Point(106, 266);
+            this.BtnListele.Name = "BtnListele";
+            this.BtnListele.Size = new System.Drawing.Size(221, 46);
+            this.BtnListele.TabIndex = 23;
+            this.BtnListele.Text = "Listele";
+            this.BtnListele.UseVisualStyleBackColor = true;
+            this.BtnListele.Click += new System.EventHandler(this.BtnListele_Click);
             // 
             // FrmCari
             // 
@@ -332,6 +377,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -364,6 +410,10 @@
         private System.Windows.Forms.MaskedTextBox MskTCKNVKN;
         private System.Windows.Forms.RadioButton RBEvet;
         private System.Windows.Forms.RadioButton RBHayir;
+        private System.Windows.Forms.Button BtnAramaYap;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox TxtAramaYap;
+        private System.Windows.Forms.Button BtnListele;
     }
 }
 
