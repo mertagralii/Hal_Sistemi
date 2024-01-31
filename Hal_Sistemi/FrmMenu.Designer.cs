@@ -30,7 +30,6 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.BtnSatisListe = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnUrunler = new System.Windows.Forms.Button();
             this.BtnCari = new System.Windows.Forms.Button();
@@ -59,22 +58,12 @@
             this.groupBox2.Controls.Add(this.BtnSat);
             this.groupBox2.Controls.Add(this.BtnGuncelle);
             this.groupBox2.Controls.Add(this.BtnEkle);
-            this.groupBox2.Controls.Add(this.BtnSatisListe);
             this.groupBox2.Location = new System.Drawing.Point(901, 36);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(207, 374);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İşlemler";
-            // 
-            // BtnSatisListe
-            // 
-            this.BtnSatisListe.Location = new System.Drawing.Point(15, 308);
-            this.BtnSatisListe.Name = "BtnSatisListe";
-            this.BtnSatisListe.Size = new System.Drawing.Size(176, 51);
-            this.BtnSatisListe.TabIndex = 1;
-            this.BtnSatisListe.Text = "Satış Listesi";
-            this.BtnSatisListe.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -140,7 +129,7 @@
             // 
             // BtnGuncelle
             // 
-            this.BtnGuncelle.Location = new System.Drawing.Point(15, 120);
+            this.BtnGuncelle.Location = new System.Drawing.Point(15, 162);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(176, 51);
             this.BtnGuncelle.TabIndex = 3;
@@ -149,7 +138,7 @@
             // 
             // BtnSat
             // 
-            this.BtnSat.Location = new System.Drawing.Point(15, 212);
+            this.BtnSat.Location = new System.Drawing.Point(15, 287);
             this.BtnSat.Name = "BtnSat";
             this.BtnSat.Size = new System.Drawing.Size(176, 51);
             this.BtnSat.TabIndex = 4;
@@ -188,7 +177,6 @@
         private System.Windows.Forms.Button BtnUrunler;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button BtnSatisListe;
         private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Button BtnSat;

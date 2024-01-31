@@ -22,8 +22,8 @@ namespace Hal_Sistemi
         SqlConnection baglanti = new SqlConnection(@"Data Source=Mert;Initial Catalog=DbHalSistem;Integrated Security=True");
         void listeleme()
         {
-            // Listeleme Metodu
-            string innerjoin = "SELECT \r\n    TBLCariHareket.ID AS 'Hareket Numarası',\r\n    TBLUrun.ID AS 'Ürün Numarası',\r\n    TBLMusteri.ID AS 'Müşteri Numarası',\r\n    TBLMusteri.Tckn AS 'TCKN', \r\n    TBLMusteri.Vkn AS 'Vergi Kimlik Numarası', \r\n    TBLMusteri.EFatura AS 'E-Fatura' ,\r\n    TBLMusteri.Unvan AS 'Ünvan' , \r\n    TBLMusteri.VergiDairesi,\r\n    TBLMusteri.Adres,\r\n    TBLMusteri.Telefon,\r\n    TBLUrun.UrunAd AS 'Ürün Adı', \r\n    TBLUrun.Birim,\r\n    TBLUrun.Cinsi,\r\n    TBLUrun.Mensei,\r\n    TBLUrun.BirimAdet,\r\n    TBLUrun.BirimFiyat,\r\n    TBLUrun.KDV, \r\n CAST(((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) + ((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) * (TBLUrun.KDV / 100.0))) AS DECIMAL(18, 2)) AS 'Toplam Fiyat'\r\nFROM \r\n    TBLCariHareket \r\nINNER JOIN \r\n    TBLMusteri ON TBLMusteri.ID = TBLCariHareket.MusteriID \r\nINNER JOIN \r\n    TBLUrun ON TBLUrun.ID = TBLCariHareket.UrunID;";
+            // Listeleme Metodu (innerjoinli)
+            string innerjoin = "SELECT TBLCariHareket.ID AS 'Hareket Numarası',TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',TBLMusteri.Tckn AS 'TCKN',TBLMusteri.Vkn AS 'Vergi Kimlik Numarası',TBLMusteri.EFatura AS 'E-Fatura' ,TBLMusteri.Unvan AS 'Ünvan' ,TBLMusteri.VergiDairesi,TBLMusteri.Adres,TBLMusteri.Telefon,TBLUrun.UrunAd AS 'Ürün Adı',TBLUrun.Birim,TBLUrun.Cinsi,TBLUrun.Mensei,TBLUrun.BirimAdet,TBLUrun.BirimFiyat,TBLUrun.KDV,CAST(((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) + ((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) * (TBLUrun.KDV / 100.0))) AS DECIMAL(18, 2)) AS 'Toplam Fiyat' FROM TBLCariHareket INNER JOIN TBLMusteri ON TBLMusteri.ID = TBLCariHareket.MusteriID INNER JOIN TBLUrun ON TBLUrun.ID = TBLCariHareket.UrunID ORDER BY TBLMusteri.ID ASC";
             SqlDataAdapter da = new SqlDataAdapter( innerjoin,baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -37,33 +37,22 @@ namespace Hal_Sistemi
             dataGridView1.Columns["Ürün Adı"].DisplayIndex = 9;
             dataGridView1.Columns["Cinsi"].DisplayIndex = 10;
             dataGridView1.Columns["Mensei"].DisplayIndex = 11;
-
-
         }
-
-
-        
-
-
         private void BtnCari_Click(object sender, EventArgs e)
         {
             // Cari(Müşteri) Kısmını açma
             FrmCari cari = new FrmCari();
             cari.Show();
         }
-
         private void BtnUrunler_Click(object sender, EventArgs e)
         {
             // Urunler kısmını açma
             FrmUrun urun = new FrmUrun();
             urun.Show();
         }
-
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-           
             listeleme();
-
         }
     }
 }
