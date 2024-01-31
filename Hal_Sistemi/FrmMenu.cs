@@ -38,13 +38,14 @@ namespace Hal_Sistemi
             dataGridView1.Columns["VergiDairesi"].DisplayIndex = 7;
             dataGridView1.Columns["Adres"].DisplayIndex = 8;
             dataGridView1.Columns["Telefon"].DisplayIndex = 9;
-            dataGridView1.Columns["Ürün Adı"].DisplayIndex = 10;
-            dataGridView1.Columns["Cinsi"].DisplayIndex = 11;
-            dataGridView1.Columns["Mensei"].DisplayIndex = 12;
+            dataGridView1.Columns["E-Posta"].DisplayIndex = 10;
+            dataGridView1.Columns["Ürün Adı"].DisplayIndex = 11;
+            dataGridView1.Columns["Cinsi"].DisplayIndex = 12;
+            dataGridView1.Columns["Mensei"].DisplayIndex = 13;
         }
         void temizleme()
         {
-            textBox1.Text = " ";
+            TxtCariID.Text = " ";
             TxtMüsteriID.Text = " ";
             TxtUrunID.Text = " ";
         }
@@ -100,6 +101,27 @@ namespace Hal_Sistemi
             MessageBox.Show("Ekleme işlemi gerçekleştirildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             listeleme();
             temizleme();
+        }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            // Güncelleme İşlemi
+            baglanti.Open();
+            SqlCommand cariHareketUpdate = new SqlCommand("UPDATE TBLCariHareket SET MusteriID=@P1,UrunID=@P2 Where ID=@P3", baglanti);
+            cariHareketUpdate.Parameters.AddWithValue("@P1", TxtMüsteriID.Text);
+            cariHareketUpdate.Parameters.AddWithValue("@P2", TxtUrunID.Text);
+            cariHareketUpdate.Parameters.AddWithValue("@P3", TxtCariID.Text);
+            cariHareketUpdate.ExecuteNonQuery();
+            baglanti.Close();
+            MessageBox.Show("Güncelleme işlemi gerçekleştirildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listeleme();
+            temizleme();
+        }
+
+        private void CmbBirim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Klavye Girişini Engelle
+            e.Handled = true;
         }
     }
 }
