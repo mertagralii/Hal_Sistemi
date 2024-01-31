@@ -30,15 +30,15 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.BtnSatisListe = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.BtnUrunler = new System.Windows.Forms.Button();
             this.BtnCari = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnEkle = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.BtnSat = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -56,10 +56,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.button4);
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.BtnSat);
+            this.groupBox2.Controls.Add(this.BtnGuncelle);
+            this.groupBox2.Controls.Add(this.BtnEkle);
+            this.groupBox2.Controls.Add(this.BtnSatisListe);
             this.groupBox2.Location = new System.Drawing.Point(901, 36);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(207, 374);
@@ -67,14 +67,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İşlemler";
             // 
-            // button2
+            // BtnSatisListe
             // 
-            this.button2.Location = new System.Drawing.Point(15, 308);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(176, 51);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Satış Listesi";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnSatisListe.Location = new System.Drawing.Point(15, 308);
+            this.BtnSatisListe.Name = "BtnSatisListe";
+            this.BtnSatisListe.Size = new System.Drawing.Size(176, 51);
+            this.BtnSatisListe.TabIndex = 1;
+            this.BtnSatisListe.Text = "Satış Listesi";
+            this.BtnSatisListe.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -129,32 +129,32 @@
             this.dataGridView1.Size = new System.Drawing.Size(1476, 259);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // BtnEkle
             // 
-            this.button1.Location = new System.Drawing.Point(15, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(176, 51);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Ekle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnEkle.Location = new System.Drawing.Point(15, 31);
+            this.BtnEkle.Name = "BtnEkle";
+            this.BtnEkle.Size = new System.Drawing.Size(176, 51);
+            this.BtnEkle.TabIndex = 2;
+            this.BtnEkle.Text = "Ekle";
+            this.BtnEkle.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // BtnGuncelle
             // 
-            this.button3.Location = new System.Drawing.Point(15, 120);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(176, 51);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Güncelle";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Location = new System.Drawing.Point(15, 120);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(176, 51);
+            this.BtnGuncelle.TabIndex = 3;
+            this.BtnGuncelle.Text = "Güncelle";
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // BtnSat
             // 
-            this.button4.Location = new System.Drawing.Point(15, 212);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(176, 51);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Sat";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnSat.Location = new System.Drawing.Point(15, 212);
+            this.BtnSat.Name = "BtnSat";
+            this.BtnSat.Size = new System.Drawing.Size(176, 51);
+            this.BtnSat.TabIndex = 4;
+            this.BtnSat.Text = "Sat";
+            this.BtnSat.UseVisualStyleBackColor = true;
             // 
             // FrmMenu
             // 
@@ -188,9 +188,9 @@
         private System.Windows.Forms.Button BtnUrunler;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnSatisListe;
+        private System.Windows.Forms.Button BtnEkle;
+        private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.Button BtnSat;
     }
 }
