@@ -138,6 +138,7 @@
             this.TxtMüsteriID.Name = "TxtMüsteriID";
             this.TxtMüsteriID.Size = new System.Drawing.Size(135, 32);
             this.TxtMüsteriID.TabIndex = 5;
+            this.TxtMüsteriID.TextChanged += new System.EventHandler(this.TxtMüsteriID_TextChanged);
             // 
             // label3
             // 
@@ -241,6 +242,7 @@
             this.BtnSat.TabIndex = 4;
             this.BtnSat.Text = "Sat";
             this.BtnSat.UseVisualStyleBackColor = true;
+            this.BtnSat.Click += new System.EventHandler(this.BtnSat_Click);
             // 
             // BtnGuncelle
             // 

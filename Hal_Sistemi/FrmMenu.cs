@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Xml.Linq;
 
 
 namespace Hal_Sistemi
@@ -51,7 +52,22 @@ namespace Hal_Sistemi
             TxtCariID.Text = " ";
             TxtMüsteriID.Text = " ";
             TxtUrunID.Text = " ";
+            MskTcknVkn.Text = " ";
+            TxtUnvan.Text = " ";
+            TxtVergiDairesi.Text = " ";
+            TxtAdres.Text = " ";
+            MskTelefon.Text = " ";
+            TxtEposta.Text = " ";
+            TxtUrunAd.Text = " ";
+            TxtCinsi.Text = " ";
+            TxtMensei.Text = " ";
+            TxtBirimAdet.Text = " ";
+            TxtBirimFiyat.Text = " ";
+            CmbBirim.Text = " ";
+            TxtKDV.Text = " ";
+            LBTutar.Text = "0" + "" + "TL";
             RBEvet.Checked = false;
+            RBHayır.Checked = false;
         }
         private void BtnCari_Click(object sender, EventArgs e)
         {
@@ -91,6 +107,7 @@ namespace Hal_Sistemi
         {
             // Listeleme
             listeleme();
+            temizleme();
         }
 
         private void BtnEkle_Click(object sender, EventArgs e)
@@ -100,6 +117,7 @@ namespace Hal_Sistemi
             SqlCommand cariHareketİnsert = new SqlCommand("INSERT INTO TBLCariHareket (MusteriID,UrunID) VALUES (@P1,@P2)", baglanti);
             cariHareketİnsert.Parameters.AddWithValue("@P1", TxtMüsteriID.Text);
             cariHareketİnsert.Parameters.AddWithValue("@P2", TxtUrunID.Text);
+
             cariHareketİnsert.ExecuteNonQuery();
             baglanti.Close();
             MessageBox.Show("Ekleme işlemi gerçekleştirildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -131,6 +149,7 @@ namespace Hal_Sistemi
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             // Datagrid'den gelen verileri kutulara yerleştirme
+
             int secilen = dataGridView1.SelectedCells[0].RowIndex;
             TxtCariID.Text = dataGridView1.Rows[secilen].Cells[0].Value.ToString();
             TxtMüsteriID.Text = dataGridView1.Rows[secilen].Cells[2].Value.ToString();
@@ -168,11 +187,55 @@ namespace Hal_Sistemi
             TxtBirimFiyat.Text = dataGridView1.Rows[secilen].Cells[16].Value.ToString();
             TxtKDV.Text = dataGridView1.Rows[secilen].Cells[17].Value.ToString();
             LBTutar.Text = dataGridView1.Rows[secilen].Cells[18].Value.ToString() + " " + " TL"; 
+        }
 
+        private void BtnSat_Click(object sender, EventArgs e)
+        {
 
+        }
 
+        private void TxtMüsteriID_TextChanged(object sender, EventArgs e)
+        {
+            string customerID = TxtMüsteriID.Text.Trim();
 
+            // Eğer müşteri numarası boşsa diğer alanları da temizle
+            if (string.IsNullOrEmpty(customerID))
+            {
+                temizleme();
+                return;
+            }
 
+            SqlCommand getir = new SqlCommand("Select Tckn,EFatura,Unvan,VergiDairesi,Adres,Telefon,Eposta,Vkn From TBLMusteri Where ID=@ID AND SilindiMİ=0", baglanti);
+            getir.Parameters.AddWithValue("@ID", TxtMüsteriID.Text);
+            baglanti.Open();
+            SqlDataReader dr = getir.ExecuteReader();
+            if (dr.Read())
+            {
+                if (dr["Vkn"].ToString().Length <= 10)
+                {
+                    MskTcknVkn.Text = dr["Vkn"].ToString();
+                }
+                
+                if(dr["Tckn"].ToString().Length == 11)
+                {
+                    MskTcknVkn.Text = dr["Tckn"].ToString();
+                }
+                TxtUnvan.Text = dr["Unvan"].ToString();
+                if (dr["EFatura"].ToString() == "True")
+                {
+                    RBEvet.Checked = true;
+                }
+                else
+                {
+                    RBHayır.Checked = true;
+                }
+                TxtVergiDairesi.Text = dr["VergiDairesi"].ToString();
+                TxtAdres.Text = dr["Adres"].ToString();
+                MskTelefon.Text = dr["Telefon"].ToString();
+                TxtEposta.Text = dr["Eposta"].ToString();
+            }
+            baglanti.Close();
+            dr.Close();
         }
     }
 }
