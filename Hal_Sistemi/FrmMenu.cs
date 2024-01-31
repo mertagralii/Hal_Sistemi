@@ -23,7 +23,8 @@ namespace Hal_Sistemi
         void listeleme()
         {
             // Listeleme Metodu
-            SqlDataAdapter da = new SqlDataAdapter("SELECT TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',TBLMusteri.Tckn AS 'TCKN', TBLMusteri.Vkn AS 'Vergi Kimlik Numarası',TBLMusteri.EFatura AS 'E-Fatura' ,TBLMusteri.Unvan AS 'Ünvan' ,TBLMusteri.VergiDairesi,TBLMusteri.Adres,TBLMusteri.Telefon,TBLUrun.UrunAd AS 'Ürün Adı', TBLUrun.Birim,TBLUrun.Cinsi,TBLUrun.Mensei,TBLUrun.BirimFiyat,TBLUrun.KDV FROM TBLCariHareket INNER JOIN TBLMusteri \r\nON\r\nTBLMusteri.ID = TBLCariHareket.MusteriID inner join TBLUrun\r\non\r\nTBLUrun.ID = TBLCariHareket.UrunID    ", baglanti);
+            string innerjoin = "SELECT TBLCariHareket.ID AS 'Hareket Numarası',TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',TBLMusteri.Tckn AS 'TCKN', TBLMusteri.Vkn AS 'Vergi Kimlik Numarası',TBLMusteri.EFatura AS 'E-Fatura' ,TBLMusteri.Unvan AS 'Ünvan' ,TBLMusteri.VergiDairesi,TBLMusteri.Adres,TBLMusteri.Telefon,TBLUrun.UrunAd AS 'Ürün Adı', TBLUrun.Birim,TBLUrun.Cinsi,TBLUrun.Mensei,TBLUrun.BirimAdet,TBLUrun.BirimFiyat,TBLUrun.KDV, TBLCariHareket.ToplamTutar as 'Toplam Fiyat' FROM TBLCariHareket INNER JOIN TBLMusteri \r\nON\r\nTBLMusteri.ID = TBLCariHareket.MusteriID inner join TBLUrun\r\non\r\nTBLUrun.ID = TBLCariHareket.UrunID";
+            SqlDataAdapter da = new SqlDataAdapter( innerjoin,baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;

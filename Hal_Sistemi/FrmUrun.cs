@@ -22,7 +22,7 @@ namespace Hal_Sistemi
         void listeleme()
         {
             // Listeleme Metodu
-            SqlDataAdapter da = new SqlDataAdapter("SELECT ID,UrunAd AS 'Ürün Adı ' ,Birim,Cinsi,Mensei,BirimFiyat,KDV FROM TBLUrun Where SilindiMi=0", baglanti);
+            SqlDataAdapter da = new SqlDataAdapter("SELECT ID,UrunAd AS 'Ürün Adı',Birim,Cinsi,Mensei,BirimAdet,BirimFiyat,KDV FROM TBLUrun Where SilindiMi=0", baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -38,8 +38,9 @@ namespace Hal_Sistemi
             TxtMensei.Text = " ";
             TxtBirimFiyat.Text = " ";
             TxtKDVOran.Text = " ";
+            TxtBirimAdet.Text = " ";
         }
-       
+
 
         private void Urun_Load(object sender, EventArgs e)
         {
@@ -52,13 +53,14 @@ namespace Hal_Sistemi
         {
             // Ekleme İşlemi
             baglanti.Open();
-            SqlCommand inter = new SqlCommand("INSERT INTO TBLUrun (Urunad, Birim, Cinsi, Mensei, BirimFiyat, KDV) VALUES (@P1, @P2, @P3, @P4, @P5, @P6)", baglanti);
+            SqlCommand inter = new SqlCommand("INSERT INTO TBLUrun (Urunad, Birim, Cinsi, Mensei,BirimAdet, BirimFiyat, KDV) VALUES (@P1, @P2, @P3, @P4, @P5, @P6,@P7)", baglanti);
             inter.Parameters.AddWithValue("@P1", TxtUrunAd.Text);
             inter.Parameters.AddWithValue("@P2", CmbBirim.Text);
             inter.Parameters.AddWithValue("@P3", TxtCins.Text);
             inter.Parameters.AddWithValue("@P4", TxtMensei.Text);
-            inter.Parameters.AddWithValue("@P5", TxtBirimFiyat.Text);
-            inter.Parameters.AddWithValue("@P6", TxtKDVOran.Text);
+            inter.Parameters.AddWithValue("@P5", TxtBirimAdet.Text);
+            inter.Parameters.AddWithValue("@P6", TxtBirimFiyat.Text);
+            inter.Parameters.AddWithValue("@P7",TxtKDVOran.Text);
             inter.ExecuteNonQuery();
             baglanti.Close();
             MessageBox.Show("Ekleme İşlemi Gerçekleştirildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -77,22 +79,24 @@ namespace Hal_Sistemi
             CmbBirim.Text = dataGridView1.Rows[secilen].Cells[2].Value.ToString();
             TxtCins.Text = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
             TxtMensei.Text = dataGridView1.Rows[secilen].Cells[4].Value.ToString();
-            TxtBirimFiyat.Text= dataGridView1.Rows[secilen].Cells[5].Value.ToString();
-            TxtKDVOran.Text = dataGridView1.Rows[secilen].Cells[6].Value.ToString();
+            TxtBirimAdet.Text= dataGridView1.Rows[secilen].Cells[5].Value.ToString();
+            TxtBirimFiyat.Text = dataGridView1.Rows[secilen].Cells[6].Value.ToString();
+            TxtKDVOran.Text = dataGridView1.Rows[secilen].Cells[7].Value.ToString();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
             // Güncelleme İşlemi
             baglanti.Open();
-            SqlCommand update = new SqlCommand("Update TBLUrun set  UrunAd=@P1,Birim=@P2,Cinsi=@P3,Mensei=@P4,BirimFiyat=@P5,KDV=@P6 Where ID=@P7", baglanti);
+            SqlCommand update = new SqlCommand("Update TBLUrun set  UrunAd=@P1,Birim=@P2,Cinsi=@P3,Mensei=@P4,BirimAdet=@P5,BirimFiyat=@P6,KDV=@P7 Where ID=@P8", baglanti);
             update.Parameters.AddWithValue("@P1", TxtUrunAd.Text);
             update.Parameters.AddWithValue("@P2", CmbBirim.Text);
             update.Parameters.AddWithValue("@P3", TxtCins.Text);
             update.Parameters.AddWithValue("@P4", TxtMensei.Text);
-            update.Parameters.AddWithValue("@P5", TxtBirimFiyat.Text);
-            update.Parameters.AddWithValue("@P6", TxtKDVOran.Text);
-            update.Parameters.AddWithValue("@P7",TxtUrunid.Text);
+            update.Parameters.AddWithValue("@P5", TxtBirimAdet.Text);
+            update.Parameters.AddWithValue("@P6", TxtBirimFiyat.Text);
+            update.Parameters.AddWithValue("@P7", TxtKDVOran.Text);
+            update.Parameters.AddWithValue("@P8",TxtUrunid.Text);
             update.ExecuteNonQuery();
             baglanti.Close();
             MessageBox.Show("Güncelleme İşlemi Gerçekleştirildi.", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);

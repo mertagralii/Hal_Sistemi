@@ -36,6 +36,9 @@
             this.BtnCari = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -53,6 +56,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button4);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Location = new System.Drawing.Point(901, 36);
             this.groupBox2.Name = "groupBox2";
@@ -63,7 +69,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(25, 175);
+            this.button2.Location = new System.Drawing.Point(15, 308);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(176, 51);
             this.button2.TabIndex = 1;
@@ -109,7 +115,7 @@
             this.groupBox4.Size = new System.Drawing.Size(1482, 290);
             this.groupBox4.TabIndex = 2;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Veri Tabanı";
+            this.groupBox4.Text = "Cari Hareket Tablosu";
             // 
             // dataGridView1
             // 
@@ -122,6 +128,33 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(1476, 259);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(15, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(176, 51);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Ekle";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(15, 120);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(176, 51);
+            this.button3.TabIndex = 3;
+            this.button3.Text = "Güncelle";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(15, 212);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(176, 51);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Sat";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // FrmMenu
             // 
@@ -156,5 +189,8 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
