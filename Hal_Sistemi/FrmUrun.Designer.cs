@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtBirimAdet = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.TxtUrunid = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.CmbBirim = new System.Windows.Forms.ComboBox();
@@ -49,8 +51,10 @@
             this.BtnEkle = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.TxtBirimAdet = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.BtnListele = new System.Windows.Forms.Button();
+            this.TxtAramaYap = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BtnAramaYap = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -81,6 +85,22 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ürün Bilgileri";
+            // 
+            // TxtBirimAdet
+            // 
+            this.TxtBirimAdet.Location = new System.Drawing.Point(147, 270);
+            this.TxtBirimAdet.Name = "TxtBirimAdet";
+            this.TxtBirimAdet.Size = new System.Drawing.Size(290, 32);
+            this.TxtBirimAdet.TabIndex = 5;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(32, 278);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(107, 24);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Birim Adet:";
             // 
             // TxtUrunid
             // 
@@ -204,6 +224,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BtnAramaYap);
+            this.groupBox2.Controls.Add(this.TxtAramaYap);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.BtnListele);
             this.groupBox2.Controls.Add(this.BtnSilme);
             this.groupBox2.Controls.Add(this.BtnGuncelle);
             this.groupBox2.Controls.Add(this.BtnEkle);
@@ -216,7 +240,7 @@
             // 
             // BtnSilme
             // 
-            this.BtnSilme.Location = new System.Drawing.Point(93, 295);
+            this.BtnSilme.Location = new System.Drawing.Point(93, 179);
             this.BtnSilme.Name = "BtnSilme";
             this.BtnSilme.Size = new System.Drawing.Size(255, 43);
             this.BtnSilme.TabIndex = 10;
@@ -226,7 +250,7 @@
             // 
             // BtnGuncelle
             // 
-            this.BtnGuncelle.Location = new System.Drawing.Point(93, 151);
+            this.BtnGuncelle.Location = new System.Drawing.Point(93, 109);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(255, 43);
             this.BtnGuncelle.TabIndex = 9;
@@ -267,21 +291,41 @@
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // TxtBirimAdet
+            // BtnListele
             // 
-            this.TxtBirimAdet.Location = new System.Drawing.Point(147, 270);
-            this.TxtBirimAdet.Name = "TxtBirimAdet";
-            this.TxtBirimAdet.Size = new System.Drawing.Size(290, 32);
-            this.TxtBirimAdet.TabIndex = 5;
+            this.BtnListele.Location = new System.Drawing.Point(93, 259);
+            this.BtnListele.Name = "BtnListele";
+            this.BtnListele.Size = new System.Drawing.Size(255, 43);
+            this.BtnListele.TabIndex = 11;
+            this.BtnListele.Text = "Listele";
+            this.BtnListele.UseVisualStyleBackColor = true;
+            this.BtnListele.Click += new System.EventHandler(this.BtnListele_Click);
             // 
-            // label8
+            // TxtAramaYap
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 278);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 24);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Birim Adet:";
+            this.TxtAramaYap.Location = new System.Drawing.Point(107, 364);
+            this.TxtAramaYap.Name = "TxtAramaYap";
+            this.TxtAramaYap.Size = new System.Drawing.Size(171, 32);
+            this.TxtAramaYap.TabIndex = 17;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 372);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 24);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "Arama:";
+            // 
+            // BtnAramaYap
+            // 
+            this.BtnAramaYap.Location = new System.Drawing.Point(294, 362);
+            this.BtnAramaYap.Name = "BtnAramaYap";
+            this.BtnAramaYap.Size = new System.Drawing.Size(122, 34);
+            this.BtnAramaYap.TabIndex = 19;
+            this.BtnAramaYap.Text = "Ara";
+            this.BtnAramaYap.UseVisualStyleBackColor = true;
+            this.BtnAramaYap.Click += new System.EventHandler(this.BtnAramaYap_Click);
             // 
             // FrmUrun
             // 
@@ -300,6 +344,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -331,5 +376,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtBirimAdet;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox TxtAramaYap;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button BtnListele;
+        private System.Windows.Forms.Button BtnAramaYap;
     }
 }

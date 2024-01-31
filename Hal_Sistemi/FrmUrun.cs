@@ -39,6 +39,7 @@ namespace Hal_Sistemi
             TxtBirimFiyat.Text = " ";
             TxtKDVOran.Text = " ";
             TxtBirimAdet.Text = " ";
+            TxtAramaYap.Text = " ";
         }
 
 
@@ -123,6 +124,25 @@ namespace Hal_Sistemi
         private void CmbBirim_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true; // Klavye girişini engeller
+        }
+
+        private void BtnListele_Click(object sender, EventArgs e)
+        {
+            listeleme();
+        }
+
+        private void BtnAramaYap_Click(object sender, EventArgs e)
+        {
+            //Arama İşlemi
+            SqlCommand search = new SqlCommand("SELECT ID, UrunAd AS 'Ürün Adı', Birim, Cinsi, Mensei, BirimAdet, BirimFiyat, KDV FROM TBLUrun WHERE UrunAd LIKE @P1 AND SilindiMi = 0", baglanti);
+            search.Parameters.AddWithValue("@P1", "%" + TxtAramaYap.Text + "%");
+            baglanti.Open();
+            SqlDataReader reader = search.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+            dataGridView1.DataSource = dt;
+            MessageBox.Show("Arama İşlemi Gerçekleştirildi", "Bilgilendirme", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            temizleme();
         }
     }
 }
