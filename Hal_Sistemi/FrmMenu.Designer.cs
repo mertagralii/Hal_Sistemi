@@ -29,7 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtMüsteriID = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtUrunID = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnAramaYap = new System.Windows.Forms.Button();
+            this.TxtAramaYap = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BtnListele = new System.Windows.Forms.Button();
             this.BtnSat = new System.Windows.Forms.Button();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnEkle = new System.Windows.Forms.Button();
@@ -38,16 +48,6 @@
             this.BtnCari = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.BtnListele = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TxtAramaYap = new System.Windows.Forms.TextBox();
-            this.BtnAramaYap = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -57,9 +57,9 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.TxtMüsteriID);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.TxtUrunID);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
@@ -69,6 +69,55 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bilgiler";
+            // 
+            // TxtMüsteriID
+            // 
+            this.TxtMüsteriID.Location = new System.Drawing.Point(181, 71);
+            this.TxtMüsteriID.Name = "TxtMüsteriID";
+            this.TxtMüsteriID.Size = new System.Drawing.Size(135, 32);
+            this.TxtMüsteriID.TabIndex = 5;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 79);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(169, 24);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Müşteri Numarası:";
+            // 
+            // TxtUrunID
+            // 
+            this.TxtUrunID.Location = new System.Drawing.Point(162, 131);
+            this.TxtUrunID.Name = "TxtUrunID";
+            this.TxtUrunID.Size = new System.Drawing.Size(135, 32);
+            this.TxtUrunID.TabIndex = 3;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 139);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 24);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Ürün Numarası :";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(90, 23);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(135, 32);
+            this.textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Cari ID :";
             // 
             // groupBox2
             // 
@@ -85,6 +134,42 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İşlemler";
+            // 
+            // BtnAramaYap
+            // 
+            this.BtnAramaYap.Location = new System.Drawing.Point(252, 318);
+            this.BtnAramaYap.Name = "BtnAramaYap";
+            this.BtnAramaYap.Size = new System.Drawing.Size(95, 36);
+            this.BtnAramaYap.TabIndex = 8;
+            this.BtnAramaYap.Text = "Ara";
+            this.BtnAramaYap.UseVisualStyleBackColor = true;
+            this.BtnAramaYap.Click += new System.EventHandler(this.BtnAramaYap_Click);
+            // 
+            // TxtAramaYap
+            // 
+            this.TxtAramaYap.Location = new System.Drawing.Point(89, 321);
+            this.TxtAramaYap.Name = "TxtAramaYap";
+            this.TxtAramaYap.Size = new System.Drawing.Size(157, 32);
+            this.TxtAramaYap.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 329);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 24);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Arama:";
+            // 
+            // BtnListele
+            // 
+            this.BtnListele.Location = new System.Drawing.Point(83, 239);
+            this.BtnListele.Name = "BtnListele";
+            this.BtnListele.Size = new System.Drawing.Size(176, 51);
+            this.BtnListele.TabIndex = 5;
+            this.BtnListele.Text = "Listele";
+            this.BtnListele.UseVisualStyleBackColor = true;
+            this.BtnListele.Click += new System.EventHandler(this.BtnListele_Click);
             // 
             // BtnSat
             // 
@@ -112,6 +197,7 @@
             this.BtnEkle.TabIndex = 2;
             this.BtnEkle.Text = "Ekle";
             this.BtnEkle.UseVisualStyleBackColor = true;
+            this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
             // 
             // groupBox3
             // 
@@ -166,91 +252,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(1476, 259);
             this.dataGridView1.TabIndex = 0;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Cari ID :";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(90, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(135, 32);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(162, 131);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(135, 32);
-            this.textBox2.TabIndex = 3;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Ürün Numarası :";
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(181, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(135, 32);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 79);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(169, 24);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Müşteri Numarası:";
-            // 
-            // BtnListele
-            // 
-            this.BtnListele.Location = new System.Drawing.Point(83, 239);
-            this.BtnListele.Name = "BtnListele";
-            this.BtnListele.Size = new System.Drawing.Size(176, 51);
-            this.BtnListele.TabIndex = 5;
-            this.BtnListele.Text = "Listele";
-            this.BtnListele.UseVisualStyleBackColor = true;
-            this.BtnListele.Click += new System.EventHandler(this.BtnListele_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 329);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 24);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Arama:";
-            // 
-            // TxtAramaYap
-            // 
-            this.TxtAramaYap.Location = new System.Drawing.Point(89, 321);
-            this.TxtAramaYap.Name = "TxtAramaYap";
-            this.TxtAramaYap.Size = new System.Drawing.Size(157, 32);
-            this.TxtAramaYap.TabIndex = 7;
-            // 
-            // BtnAramaYap
-            // 
-            this.BtnAramaYap.Location = new System.Drawing.Point(252, 318);
-            this.BtnAramaYap.Name = "BtnAramaYap";
-            this.BtnAramaYap.Size = new System.Drawing.Size(95, 36);
-            this.BtnAramaYap.TabIndex = 8;
-            this.BtnAramaYap.Text = "Ara";
-            this.BtnAramaYap.UseVisualStyleBackColor = true;
-            this.BtnAramaYap.Click += new System.EventHandler(this.BtnAramaYap_Click);
-            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
@@ -290,10 +291,10 @@
         private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Button BtnSat;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtUrunID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtMüsteriID;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnListele;
         private System.Windows.Forms.Button BtnAramaYap;

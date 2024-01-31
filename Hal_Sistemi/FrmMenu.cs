@@ -24,7 +24,7 @@ namespace Hal_Sistemi
         {
             // Listeleme Metodu (innerjoinli)
             string innerjoin = "SELECT TBLCariHareket.ID AS 'Hareket Numarası',TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',TBLMusteri.Tckn AS 'TCKN',TBLMusteri.Vkn AS 'Vergi Kimlik Numarası',TBLMusteri.EFatura AS 'E-Fatura' ,TBLMusteri.Unvan AS 'Ünvan' ,TBLMusteri.VergiDairesi,TBLMusteri.Adres,TBLMusteri.Telefon,TBLMusteri.Eposta AS'E-Posta',TBLUrun.UrunAd AS 'Ürün Adı',TBLUrun.Birim,TBLUrun.Cinsi,TBLUrun.Mensei,TBLUrun.BirimAdet,TBLUrun.BirimFiyat,TBLUrun.KDV,CAST(((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) + ((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) * (TBLUrun.KDV / 100.0))) AS DECIMAL(18, 2)) AS 'Toplam Fiyat' FROM TBLCariHareket INNER JOIN TBLMusteri ON TBLMusteri.ID = TBLCariHareket.MusteriID INNER JOIN TBLUrun ON TBLUrun.ID = TBLCariHareket.UrunID Where TBLMusteri.SilindiMi=0 AND TBLUrun.SilindiMi=0 ORDER BY TBLMusteri.ID ASC";
-            SqlDataAdapter da = new SqlDataAdapter( innerjoin,baglanti);
+            SqlDataAdapter da = new SqlDataAdapter(innerjoin, baglanti);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
@@ -41,6 +41,12 @@ namespace Hal_Sistemi
             dataGridView1.Columns["Ürün Adı"].DisplayIndex = 10;
             dataGridView1.Columns["Cinsi"].DisplayIndex = 11;
             dataGridView1.Columns["Mensei"].DisplayIndex = 12;
+        }
+        void temizleme()
+        {
+            textBox1.Text = " ";
+            TxtMüsteriID.Text = " ";
+            TxtUrunID.Text = " ";
         }
         private void BtnCari_Click(object sender, EventArgs e)
         {
@@ -80,6 +86,20 @@ namespace Hal_Sistemi
         {
             // Listeleme
             listeleme();
+        }
+
+        private void BtnEkle_Click(object sender, EventArgs e)
+        {
+            // Ekleme İşlemi
+            baglanti.Open();
+            SqlCommand cariHareketİnsert = new SqlCommand("INSERT INTO TBLCariHareket (MusteriID,UrunID) VALUES (@P1,@P2)", baglanti);
+            cariHareketİnsert.Parameters.AddWithValue("@P1", TxtMüsteriID.Text);
+            cariHareketİnsert.Parameters.AddWithValue("@P2", TxtUrunID.Text);
+            cariHareketİnsert.ExecuteNonQuery();
+            baglanti.Close();
+            MessageBox.Show("Ekleme işlemi gerçekleştirildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            listeleme();
+            temizleme();
         }
     }
 }
