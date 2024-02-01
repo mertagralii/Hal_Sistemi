@@ -19,6 +19,10 @@ namespace Hal_Sistemi
         {
             InitializeComponent();
         }
+
+        // GLOBAL ALAN KISMI 
+
+
         // SQL Bağlantısı
         SqlConnection baglanti = new SqlConnection(@"Data Source=Mert;Initial Catalog=DbHalSistem;Integrated Security=True");
 
@@ -47,6 +51,7 @@ namespace Hal_Sistemi
             dataGridView1.Columns["Cinsi"].DisplayIndex = 12;
             dataGridView1.Columns["Mensei"].DisplayIndex = 13;
         }
+        //Tüm tabloları temizleme metodu
         void temizleme()
         {
             TxtCariID.Text = " ";
@@ -68,7 +73,9 @@ namespace Hal_Sistemi
             LBTutar.Text = "0" + "" + "TL";
             RBEvet.Checked = false;
             RBHayır.Checked = false;
+            TxtAramaYap.Text = " ";
         }
+        // Müşteri Temizleme Metodu
         void musteritemizleme()
         {
             MskTcknVkn.Text = " ";
@@ -80,6 +87,7 @@ namespace Hal_Sistemi
             MskTelefon.Text = " ";
             TxtEposta.Text = " ";
         }
+        //Ürün Temizleme Metodu
         void uruntemizleme()
         {
             TxtUrunAd.Text = " ";
@@ -90,6 +98,7 @@ namespace Hal_Sistemi
             TxtBirimFiyat.Text = " ";
             TxtKDV.Text = " ";
         }
+        
         private void BtnCari_Click(object sender, EventArgs e)
         {
             // Cari(Müşteri) Kısmını açma
@@ -129,26 +138,34 @@ namespace Hal_Sistemi
             // Listeleme
             listeleme();
             temizleme();
+            MessageBox.Show("Cari Hareket Tablosu Listelendi","Bilgilendirme",MessageBoxButtons.OK,MessageBoxIcon.Information);
         }
 
         private void BtnEkle_Click(object sender, EventArgs e)
         {
             // Ekleme İşlemi
-            baglanti.Open();
-            SqlCommand cariHareketİnsert = new SqlCommand("INSERT INTO TBLCariHareket (MusteriID,UrunID) VALUES (@P1,@P2)", baglanti);
-            cariHareketİnsert.Parameters.AddWithValue("@P1", TxtMüsteriID.Text);
-            cariHareketİnsert.Parameters.AddWithValue("@P2", TxtUrunID.Text);
-
-            cariHareketİnsert.ExecuteNonQuery();
-            baglanti.Close();
-            MessageBox.Show("Ekleme işlemi gerçekleştirildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            listeleme();
-            temizleme();
+            try
+            {
+                baglanti.Open();
+                SqlCommand cariHareketİnsert = new SqlCommand("INSERT INTO TBLCariHareket (MusteriID,UrunID) VALUES (@P1,@P2)", baglanti);
+                cariHareketİnsert.Parameters.AddWithValue("@P1", TxtMüsteriID.Text);
+                cariHareketİnsert.Parameters.AddWithValue("@P2", TxtUrunID.Text);
+                cariHareketİnsert.ExecuteNonQuery();
+                baglanti.Close();
+                MessageBox.Show("Ekleme işlemi gerçekleştirildi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                listeleme();
+                temizleme();
+            }
+            catch
+            {
+                MessageBox.Show("Müşteri Numarası ve Ürün Numarası Girilmedi","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
             // Güncelleme İşlemi
+
             baglanti.Open();
             SqlCommand cariHareketUpdate = new SqlCommand("UPDATE TBLCariHareket SET MusteriID=@P1,UrunID=@P2 Where ID=@P3", baglanti);
             cariHareketUpdate.Parameters.AddWithValue("@P1", TxtMüsteriID.Text);
@@ -209,23 +226,18 @@ namespace Hal_Sistemi
             TxtKDV.Text = dataGridView1.Rows[secilen].Cells[17].Value.ToString();
             LBTutar.Text = dataGridView1.Rows[secilen].Cells[18].Value.ToString() + " " + " TL"; 
         }
-
-        private void BtnSat_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TxtMüsteriID_TextChanged(object sender, EventArgs e)
         {
-            string customerID = TxtMüsteriID.Text.Trim();
+            //Texbox'ın içine bir değer yazıldığında gelen değerleri diğer tablolara doldur.
+
 
             // Eğer müşteri numarası boşsa diğer alanları da temizle
+            string customerID = TxtMüsteriID.Text.Trim();
             if (string.IsNullOrEmpty(customerID))
             {
                 musteritemizleme();
                 return;
             }
-
             SqlCommand Musterigetir = new SqlCommand("Select Tckn,EFatura,Unvan,VergiDairesi,Adres,Telefon,Eposta,Vkn From TBLMusteri Where ID=@ID AND SilindiMİ=0", baglanti);
             Musterigetir.Parameters.AddWithValue("@ID", TxtMüsteriID.Text);
             baglanti.Open();
@@ -236,8 +248,8 @@ namespace Hal_Sistemi
                 {
                     MskTcknVkn.Text = dr["Vkn"].ToString();
                 }
-                
-                if(dr["Tckn"].ToString().Length == 11)
+
+                if (dr["Tckn"].ToString().Length == 11)
                 {
                     MskTcknVkn.Text = dr["Tckn"].ToString();
                 }
@@ -257,13 +269,14 @@ namespace Hal_Sistemi
             }
             baglanti.Close();
             dr.Close();
+            return;
         }
 
         private void TxtUrunID_TextChanged(object sender, EventArgs e)
         {
+            //Texbox'ın içine bir değer yazıldığında gelen değerleri diğer tablolara doldur.
+            // Eğer Ürün numarası boşsa diğer alanları da temizle
             string customerID = TxtUrunID.Text.Trim();
-
-            // Eğer müşteri numarası boşsa diğer alanları da temizle
             if (string.IsNullOrEmpty(customerID))
             {
                 uruntemizleme();

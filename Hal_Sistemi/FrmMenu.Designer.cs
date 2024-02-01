@@ -40,7 +40,6 @@
             this.TxtAramaYap = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnListele = new System.Windows.Forms.Button();
-            this.BtnSat = new System.Windows.Forms.Button();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnEkle = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -189,7 +188,6 @@
             this.groupBox2.Controls.Add(this.TxtAramaYap);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.BtnListele);
-            this.groupBox2.Controls.Add(this.BtnSat);
             this.groupBox2.Controls.Add(this.BtnGuncelle);
             this.groupBox2.Controls.Add(this.BtnEkle);
             this.groupBox2.Location = new System.Drawing.Point(901, 26);
@@ -235,19 +233,9 @@
             this.BtnListele.UseVisualStyleBackColor = true;
             this.BtnListele.Click += new System.EventHandler(this.BtnListele_Click);
             // 
-            // BtnSat
-            // 
-            this.BtnSat.Location = new System.Drawing.Point(83, 162);
-            this.BtnSat.Name = "BtnSat";
-            this.BtnSat.Size = new System.Drawing.Size(176, 51);
-            this.BtnSat.TabIndex = 4;
-            this.BtnSat.Text = "Sat";
-            this.BtnSat.UseVisualStyleBackColor = true;
-            this.BtnSat.Click += new System.EventHandler(this.BtnSat_Click);
-            // 
             // BtnGuncelle
             // 
-            this.BtnGuncelle.Location = new System.Drawing.Point(83, 90);
+            this.BtnGuncelle.Location = new System.Drawing.Point(83, 126);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(176, 51);
             this.BtnGuncelle.TabIndex = 3;
@@ -589,6 +577,11 @@
             // CmbBirim
             // 
             this.CmbBirim.FormattingEnabled = true;
+            this.CmbBirim.Items.AddRange(new object[] {
+            "KG",
+            "ADET",
+            "ÇUVAL",
+            "KASA"});
             this.CmbBirim.Location = new System.Drawing.Point(707, 79);
             this.CmbBirim.Name = "CmbBirim";
             this.CmbBirim.Size = new System.Drawing.Size(134, 32);
@@ -632,7 +625,6 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.Button BtnGuncelle;
-        private System.Windows.Forms.Button BtnSat;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtUrunID;
         private System.Windows.Forms.Label label2;
