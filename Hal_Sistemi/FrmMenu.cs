@@ -72,7 +72,7 @@ namespace Hal_Sistemi
             TxtKDV.Text = " ";
             LBTutar.Text = "0" + "" + "TL";
             RBEvet.Checked = false;
-            RBHayır.Checked = false;
+            RBHayir.Checked = false;
             TxtAramaYap.Text = " ";
         }
         // Müşteri Temizleme Metodu
@@ -81,7 +81,7 @@ namespace Hal_Sistemi
             MskTcknVkn.Text = " ";
             TxtUnvan.Text = " ";
             RBEvet.Checked = false;
-            RBHayır.Checked = false;
+            RBHayir.Checked = false;
             TxtVergiDairesi.Text = " ";
             TxtAdres.Text = " ";
             MskTelefon.Text = " ";
@@ -211,7 +211,7 @@ namespace Hal_Sistemi
             else
             {
                 deger = 0;
-                RBHayır.Checked = true;
+                RBHayir.Checked = true;
             }
             TxtVergiDairesi.Text = dataGridView1.Rows[secilen].Cells[7].Value.ToString();
             TxtAdres.Text = dataGridView1.Rows[secilen].Cells[8].Value.ToString();
@@ -260,7 +260,7 @@ namespace Hal_Sistemi
                 }
                 else
                 {
-                    RBHayır.Checked = true;
+                    RBHayir.Checked = true;
                 }
                 TxtVergiDairesi.Text = dr["VergiDairesi"].ToString();
                 TxtAdres.Text = dr["Adres"].ToString();
@@ -299,6 +299,26 @@ namespace Hal_Sistemi
             baglanti.Close();
             dr.Close() ;
 
+        }
+
+        private void MskTcknVkn_TextChanged(object sender, EventArgs e)
+        {
+            if (MskTcknVkn.Text.Length <= 10)
+            {
+                TxtVergiDairesi.Visible = true;
+                RBEvet.Visible = true;
+                RBHayir.Visible = true;
+                label7.Visible = true;
+                label8.Visible = true;
+            }
+            else
+            {
+                label7.Visible = false;
+                label8.Visible = false;
+                TxtVergiDairesi.Visible = false;
+                RBEvet.Visible = false;
+                RBHayir.Visible = false;
+            }
         }
     }
 }
