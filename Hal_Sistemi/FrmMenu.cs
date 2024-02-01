@@ -69,6 +69,27 @@ namespace Hal_Sistemi
             RBEvet.Checked = false;
             RBHayır.Checked = false;
         }
+        void musteritemizleme()
+        {
+            MskTcknVkn.Text = " ";
+            TxtUnvan.Text = " ";
+            RBEvet.Checked = false;
+            RBHayır.Checked = false;
+            TxtVergiDairesi.Text = " ";
+            TxtAdres.Text = " ";
+            MskTelefon.Text = " ";
+            TxtEposta.Text = " ";
+        }
+        void uruntemizleme()
+        {
+            TxtUrunAd.Text = " ";
+            TxtCinsi.Text = " ";
+            TxtMensei.Text = " ";
+            CmbBirim.Text = " ";
+            TxtBirimAdet.Text = " ";
+            TxtBirimFiyat.Text = " ";
+            TxtKDV.Text = " ";
+        }
         private void BtnCari_Click(object sender, EventArgs e)
         {
             // Cari(Müşteri) Kısmını açma
@@ -201,14 +222,14 @@ namespace Hal_Sistemi
             // Eğer müşteri numarası boşsa diğer alanları da temizle
             if (string.IsNullOrEmpty(customerID))
             {
-                temizleme();
+                musteritemizleme();
                 return;
             }
 
-            SqlCommand getir = new SqlCommand("Select Tckn,EFatura,Unvan,VergiDairesi,Adres,Telefon,Eposta,Vkn From TBLMusteri Where ID=@ID AND SilindiMİ=0", baglanti);
-            getir.Parameters.AddWithValue("@ID", TxtMüsteriID.Text);
+            SqlCommand Musterigetir = new SqlCommand("Select Tckn,EFatura,Unvan,VergiDairesi,Adres,Telefon,Eposta,Vkn From TBLMusteri Where ID=@ID AND SilindiMİ=0", baglanti);
+            Musterigetir.Parameters.AddWithValue("@ID", TxtMüsteriID.Text);
             baglanti.Open();
-            SqlDataReader dr = getir.ExecuteReader();
+            SqlDataReader dr = Musterigetir.ExecuteReader();
             if (dr.Read())
             {
                 if (dr["Vkn"].ToString().Length <= 10)
@@ -236,6 +257,35 @@ namespace Hal_Sistemi
             }
             baglanti.Close();
             dr.Close();
+        }
+
+        private void TxtUrunID_TextChanged(object sender, EventArgs e)
+        {
+            string customerID = TxtUrunID.Text.Trim();
+
+            // Eğer müşteri numarası boşsa diğer alanları da temizle
+            if (string.IsNullOrEmpty(customerID))
+            {
+                uruntemizleme();
+                return;
+            }
+            SqlCommand urungetir = new SqlCommand("Select UrunAd,Birim,Cinsi,Mensei,BirimAdet,BirimFiyat,KDV From TBLUrun Where ID =@ID AND SilindiMi=0", baglanti);
+            urungetir.Parameters.AddWithValue("@ID", TxtUrunID.Text);
+            baglanti.Open();
+            SqlDataReader dr = urungetir.ExecuteReader();
+            if (dr.Read())
+            {
+                TxtUrunAd.Text = dr["UrunAd"].ToString();
+                TxtCinsi.Text = dr["Cinsi"].ToString();
+                TxtMensei.Text = dr["Mensei"].ToString();
+                CmbBirim.Text = dr["Birim"].ToString();
+                TxtBirimAdet.Text = dr["BirimAdet"].ToString();
+                TxtBirimFiyat.Text = dr["BirimFiyat"].ToString();
+                TxtKDV.Text = dr["KDV"].ToString();
+            }
+            baglanti.Close();
+            dr.Close() ;
+
         }
     }
 }

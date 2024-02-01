@@ -155,6 +155,7 @@
             this.TxtUrunID.Name = "TxtUrunID";
             this.TxtUrunID.Size = new System.Drawing.Size(135, 32);
             this.TxtUrunID.TabIndex = 3;
+            this.TxtUrunID.TextChanged += new System.EventHandler(this.TxtUrunID_TextChanged);
             // 
             // label2
             // 
