@@ -67,6 +67,8 @@
             this.TxtCariID = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnSatısListe = new System.Windows.Forms.Button();
+            this.BtnSat = new System.Windows.Forms.Button();
             this.BtnAramaYap = new System.Windows.Forms.Button();
             this.TxtAramaYap = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -188,6 +190,7 @@
             this.TxtBirimFiyat.ReadOnly = true;
             this.TxtBirimFiyat.Size = new System.Drawing.Size(135, 32);
             this.TxtBirimFiyat.TabIndex = 32;
+            this.TxtBirimFiyat.TextChanged += new System.EventHandler(this.TxtBirimFiyat_TextChanged);
             // 
             // label17
             // 
@@ -205,6 +208,7 @@
             this.TxtBirimAdet.ReadOnly = true;
             this.TxtBirimAdet.Size = new System.Drawing.Size(135, 32);
             this.TxtBirimAdet.TabIndex = 30;
+            this.TxtBirimAdet.TextChanged += new System.EventHandler(this.TxtBirimAdet_TextChanged);
             // 
             // label16
             // 
@@ -329,7 +333,7 @@
             // 
             // TxtVergiDairesi
             // 
-            this.TxtVergiDairesi.Location = new System.Drawing.Point(131, 329);
+            this.TxtVergiDairesi.Location = new System.Drawing.Point(141, 329);
             this.TxtVergiDairesi.Name = "TxtVergiDairesi";
             this.TxtVergiDairesi.ReadOnly = true;
             this.TxtVergiDairesi.Size = new System.Drawing.Size(135, 32);
@@ -466,6 +470,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.BtnSatısListe);
+            this.groupBox2.Controls.Add(this.BtnSat);
             this.groupBox2.Controls.Add(this.BtnAramaYap);
             this.groupBox2.Controls.Add(this.TxtAramaYap);
             this.groupBox2.Controls.Add(this.label4);
@@ -479,9 +485,28 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İşlemler";
             // 
+            // BtnSatısListe
+            // 
+            this.BtnSatısListe.Location = new System.Drawing.Point(83, 276);
+            this.BtnSatısListe.Name = "BtnSatısListe";
+            this.BtnSatısListe.Size = new System.Drawing.Size(176, 51);
+            this.BtnSatısListe.TabIndex = 10;
+            this.BtnSatısListe.Text = "Satış Listesi";
+            this.BtnSatısListe.UseVisualStyleBackColor = true;
+            this.BtnSatısListe.Click += new System.EventHandler(this.BtnSatısListe_Click);
+            // 
+            // BtnSat
+            // 
+            this.BtnSat.Location = new System.Drawing.Point(83, 139);
+            this.BtnSat.Name = "BtnSat";
+            this.BtnSat.Size = new System.Drawing.Size(176, 51);
+            this.BtnSat.TabIndex = 9;
+            this.BtnSat.Text = "Satış Yap";
+            this.BtnSat.UseVisualStyleBackColor = true;
+            // 
             // BtnAramaYap
             // 
-            this.BtnAramaYap.Location = new System.Drawing.Point(252, 318);
+            this.BtnAramaYap.Location = new System.Drawing.Point(252, 334);
             this.BtnAramaYap.Name = "BtnAramaYap";
             this.BtnAramaYap.Size = new System.Drawing.Size(95, 36);
             this.BtnAramaYap.TabIndex = 8;
@@ -491,7 +516,7 @@
             // 
             // TxtAramaYap
             // 
-            this.TxtAramaYap.Location = new System.Drawing.Point(89, 321);
+            this.TxtAramaYap.Location = new System.Drawing.Point(89, 337);
             this.TxtAramaYap.Name = "TxtAramaYap";
             this.TxtAramaYap.Size = new System.Drawing.Size(157, 32);
             this.TxtAramaYap.TabIndex = 7;
@@ -499,7 +524,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(10, 329);
+            this.label4.Location = new System.Drawing.Point(10, 345);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 24);
             this.label4.TabIndex = 6;
@@ -507,17 +532,17 @@
             // 
             // BtnListele
             // 
-            this.BtnListele.Location = new System.Drawing.Point(83, 239);
+            this.BtnListele.Location = new System.Drawing.Point(83, 205);
             this.BtnListele.Name = "BtnListele";
             this.BtnListele.Size = new System.Drawing.Size(176, 51);
             this.BtnListele.TabIndex = 5;
-            this.BtnListele.Text = "Listele";
+            this.BtnListele.Text = "Cari Hareket Liste";
             this.BtnListele.UseVisualStyleBackColor = true;
             this.BtnListele.Click += new System.EventHandler(this.BtnListele_Click);
             // 
             // BtnGuncelle
             // 
-            this.BtnGuncelle.Location = new System.Drawing.Point(83, 126);
+            this.BtnGuncelle.Location = new System.Drawing.Point(83, 80);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(176, 51);
             this.BtnGuncelle.TabIndex = 3;
@@ -667,5 +692,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label LBTutar;
         private System.Windows.Forms.ComboBox CmbBirim;
+        private System.Windows.Forms.Button BtnSat;
+        private System.Windows.Forms.Button BtnSatısListe;
     }
 }

@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 
 namespace Hal_Sistemi
@@ -98,8 +100,37 @@ namespace Hal_Sistemi
             TxtBirimFiyat.Text = " ";
             TxtKDV.Text = " ";
         }
-        
-        private void BtnCari_Click(object sender, EventArgs e)
+
+        //Hesaplama
+        private void HesaplamaYap()
+        {
+
+            if (!string.IsNullOrEmpty(TxtUrunID.Text) && !string.IsNullOrEmpty(TxtBirimAdet.Text) && !string.IsNullOrEmpty(TxtBirimFiyat.Text) && !string.IsNullOrEmpty(TxtKDV.Text))
+            {
+                int BirimadetInt, BirimFiyatInt, KDVInt;
+
+                // Girişlerin doğruluğunu kontrol et
+                if (int.TryParse(TxtBirimAdet.Text, out BirimadetInt) && int.TryParse(TxtBirimFiyat.Text, out BirimFiyatInt) && int.TryParse(TxtKDV.Text, out KDVInt))
+                {
+                    int genelF = BirimadetInt * BirimFiyatInt;
+                    double kdvOrani = (double)KDVInt / 100;
+                    double kdvTutari = genelF * kdvOrani;
+                    double toplamTutar = genelF + kdvTutari;
+
+                    LBTutar.Text = toplamTutar.ToString("N2") + " TL";
+                }
+                else
+                {
+                    MessageBox.Show("Lütfen geçerli bir sayısal değer girin.");
+                }
+            }
+            else
+            {
+                LBTutar.Text = "0";
+            }
+        }
+
+            private void BtnCari_Click(object sender, EventArgs e)
         {
             // Cari(Müşteri) Kısmını açma
             FrmCari cari = new FrmCari();
@@ -115,12 +146,14 @@ namespace Hal_Sistemi
         {
             // Listeleme
             listeleme();
+            CmbBirim.Items.Clear();
+            CmbBirim.Enabled = false;
         }
 
         private void BtnAramaYap_Click(object sender, EventArgs e)
         {
             // Arama İşlemi
-            string arama = "SELECT TBLCariHareket.ID AS 'Hareket Numarası',TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',TBLMusteri.Tckn AS 'TCKN',TBLMusteri.Vkn AS 'Vergi Kimlik Numarası',TBLMusteri.EFatura AS 'E-Fatura' ,TBLMusteri.Unvan AS 'Ünvan' ,TBLMusteri.VergiDairesi,TBLMusteri.Adres,TBLMusteri.Telefon,TBLMusteri.Eposta AS'E-Posta',TBLUrun.UrunAd AS 'Ürün Adı',TBLUrun.Birim,TBLUrun.Cinsi,TBLUrun.Mensei,TBLUrun.BirimAdet,TBLUrun.BirimFiyat,TBLUrun.KDV,CAST(((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) + ((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) * (TBLUrun.KDV / 100.0))) AS DECIMAL(18, 2)) AS 'Toplam Fiyat' FROM TBLCariHareket INNER JOIN TBLMusteri ON TBLMusteri.ID = TBLCariHareket.MusteriID INNER JOIN TBLUrun ON TBLUrun.ID = TBLCariHareket.UrunID WHERE Unvan  LIKE @P1 AND TBLUrun.SilindiMi=0 ORDER BY TBLMusteri.ID ASC";
+            string arama = "SELECT TBLCariHareket.ID AS 'Hareket Numarası',TBLUrun.ID AS 'Ürün Numarası',TBLMusteri.ID AS 'Müşteri Numarası',TBLMusteri.Tckn AS 'TCKN',TBLMusteri.Vkn AS 'Vergi Kimlik Numarası',TBLMusteri.EFatura AS 'E-Fatura' ,TBLMusteri.Unvan AS 'Ünvan' ,TBLMusteri.VergiDairesi,TBLMusteri.Adres,TBLMusteri.Telefon,TBLMusteri.Eposta AS'E-Posta',TBLUrun.UrunAd AS 'Ürün Adı',TBLUrun.Birim,TBLUrun.Cinsi,TBLUrun.Mensei,TBLUrun.BirimAdet,TBLUrun.BirimFiyat,TBLUrun.KDV,CAST(((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) + ((TBLUrun.BirimAdet * TBLUrun.BirimFiyat) * (TBLUrun.KDV / 100.0))) AS DECIMAL(18, 2)) AS 'Toplam Fiyat' FROM TBLCariHareket INNER JOIN TBLMusteri ON TBLMusteri.ID = TBLCariHareket.MusteriID INNER JOIN TBLUrun ON TBLUrun.ID = TBLCariHareket.UrunID WHERE Unvan  LIKE @P1 AND TBLMusteri.SilindiMi=0 AND TBLUrun.SilindiMi=0 ORDER BY TBLMusteri.ID ASC";
             SqlCommand search = new SqlCommand(arama, baglanti);
             search.Parameters.AddWithValue("@P1", "%" + TxtAramaYap.Text + "%");
             baglanti.Open();
@@ -274,8 +307,24 @@ namespace Hal_Sistemi
 
         private void TxtUrunID_TextChanged(object sender, EventArgs e)
         {
-            //Texbox'ın içine bir değer yazıldığında gelen değerleri diğer tablolara doldur.
-            // Eğer Ürün numarası boşsa diğer alanları da temizle
+
+            if (!string.IsNullOrEmpty(TxtUrunID.Text))
+            {
+
+                TxtBirimAdet.ReadOnly = false;
+                TxtBirimFiyat.ReadOnly = false;
+                CmbBirim.Items.Clear();
+                CmbBirim.Enabled = false;
+            }
+            else
+            {
+
+                TxtBirimAdet.ReadOnly = true;
+                TxtBirimFiyat.ReadOnly = true;
+
+            }
+            
+
             string customerID = TxtUrunID.Text.Trim();
             if (string.IsNullOrEmpty(customerID))
             {
@@ -295,10 +344,12 @@ namespace Hal_Sistemi
                 TxtBirimAdet.Text = dr["BirimAdet"].ToString();
                 TxtBirimFiyat.Text = dr["BirimFiyat"].ToString();
                 TxtKDV.Text = dr["KDV"].ToString();
+                HesaplamaYap();
             }
-            baglanti.Close();
-            dr.Close() ;
 
+            baglanti.Close();
+            dr.Close();
+            
         }
 
         private void MskTcknVkn_TextChanged(object sender, EventArgs e)
@@ -319,6 +370,22 @@ namespace Hal_Sistemi
                 RBEvet.Visible = false;
                 RBHayir.Visible = false;
             }
+        }
+
+        private void BtnSatısListe_Click(object sender, EventArgs e)
+        {
+            FrmSatisListesi frm = new FrmSatisListesi();
+            frm.Show();
+        }
+
+        private void TxtBirimAdet_TextChanged(object sender, EventArgs e)
+        {
+            HesaplamaYap();
+        }
+
+        private void TxtBirimFiyat_TextChanged(object sender, EventArgs e)
+        {
+            HesaplamaYap();
         }
     }
 }
